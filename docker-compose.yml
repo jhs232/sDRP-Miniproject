@@ -1,31 +1,28 @@
-
 services:
-  db:
-    image: postgis/postgis:15-3.4
+  DB:
+    image: postgres:16
+    container_name: fklub_postgres
     environment:
-      POSTGRES_DB: db
-      POSTGRES_USER: admin 
-      POSTGRES_PASSWORD: qwerty
+      POSTGRES_USER: fklub_admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: fklub_bi
     ports:
       - "127.0.0.1:5433:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin -d db"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-
-  pgadmin:
-    image: dpage/pgadmin4:7.5
+      - pg_data:/var/lib/postgresql/data
+  
+  saiku:
+    image: ghcr.io/spiculedata/saiku:latest
+    container_name: fklub_saiku
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: qwerty
+      - SAIKU_ALLOW_DEFAULT_ADMIN=true
     ports:
-      - "127.0.0.1:8081:80"
+      - "127.0.0.1:8080:8080"
+    # Maps a local folder so you can inject your Mondrian XML schema files
+    volumes:
+      - ./olap-schemas:/opt/saiku/tomcat/webapps/saiku/WEB-INF/classes/schemas
     depends_on:
-      db:
-        condition: service_healthy
+      - DB
 
 volumes:
-  postgres_data:
+  pg_data:

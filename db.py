@@ -6,8 +6,8 @@ def connect():
     connection = psycopg2.connect(
         host="localhost",
         port=5433,
-        dbname="db",
-        user="admin",
-        password="qwerty",
+        dbname="fklub_bi",
+        user="fklub_admin",
+        password="secretpassword",
     )
     return pygrametl.ConnectionWrapper(connection)
