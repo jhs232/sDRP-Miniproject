@@ -23,3 +23,10 @@ CREATE TABLE IF NOT EXISTS date (
     period period_type NOT NULL,
     working_day BOOLEAN NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS location (
+    id SERIAL PRIMARY KEY,
+    place_id INTEGER NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    is_event BOOLEAN NOT NULL
+);

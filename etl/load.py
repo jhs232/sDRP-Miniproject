@@ -15,6 +15,7 @@ def load(transformed_data):
     connection = connect()
     try:
         load_member_dimension(connection, transformed_data["member"])
+        load_location_dimension(connection, transformed_data["location"])
         prefill_date_dimension(connection)
         prefill_time_dimension(connection)
 
@@ -26,6 +27,22 @@ def load(transformed_data):
         connection.close()
 
     return transformed_data
+
+
+def load_location_dimension(connection, location_data):
+    location_dimension = CachedDimension(
+        name="location",
+        key="id",
+        attributes=["place_id", "name", "is_event"],
+        lookupatts=["place_id"],
+        targetconnection=connection,
+    )
+
+    for row in location_data.to_dict("records"):
+        location_dimension.ensure(
+            {"place_id": row["id"], "name": row["name"], "is_event": row["is_event"]}
+        )
+
 
 def load_member_dimension(connection, member_data):
     
