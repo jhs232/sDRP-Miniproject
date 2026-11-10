@@ -164,6 +164,7 @@ def generate_time_data():
 
     for minute in range(1440):
         hour = minute // 60
+        minute %= 60
 
         times.append({
             "minute": minute,
