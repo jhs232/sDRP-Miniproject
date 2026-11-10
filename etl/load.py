@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 from enum import Enum
+import pandas as pd
 from pygrametl.tables import CachedDimension
 from db import connect
 
@@ -16,6 +17,7 @@ def load(transformed_data):
     try:
         load_member_dimension(connection, transformed_data["member"])
         load_location_dimension(connection, transformed_data["location"])
+        load_product_dimension(connection, transformed_data["product"])
         prefill_date_dimension(connection)
         prefill_time_dimension(connection)
 
@@ -60,6 +62,43 @@ def load_member_dimension(connection, member_data):
             "signup_year": row["year"],
             "gender": row["gender"]
         })
+
+def load_product_dimension(connection, product_data):
+    attributes = [
+        "item_id",
+        "name",
+        "brand",
+        "volume",
+        "type",
+        "category",
+        "consumable",
+        "contains_alcohol",
+        "price",
+        "valid_from",
+        "valid_to",
+    ]
+
+    product_dimension = CachedDimension(
+        name="product",
+        key="product_id",
+        attributes=attributes,
+        targetconnection=connection,
+    )
+
+    for row in product_data.to_dict("records"):
+        product = {attribute: row[attribute] for attribute in attributes}
+
+        for column in ("valid_from", "valid_to"):
+            if pd.isna(product[column]):
+                product[column] = None
+            else:
+                product[column] = product[column].to_pydatetime()
+
+        if pd.isna(product["volume"]) or product["volume"] == "Unknown":
+            product["volume"] = None
+
+        product_dimension.insert(product)
+
 
 def prefill_date_dimension(connection):
     date_dimension_data = generate_date_data(date(1976, 1, 1), date.today())
