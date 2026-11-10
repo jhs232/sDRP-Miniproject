@@ -10,7 +10,8 @@ def extract():
     location = pd.read_csv(dir / "room.csv", sep=";")
     product = pd.read_csv(dir / "product.csv", sep=";")
     category = pd.read_csv(dir / "category.csv", sep=";")
-    product_category = pd.read_csv(dir / "product_category.csv", sep=";")
+    product_category = pd.read_csv(dir / "product_categories.csv", sep=";")
+    old_price = pd.read_csv(dir / "oldprice.csv", sep=";")
     return {
         "member": member,
         "sale": sale,
@@ -18,4 +19,5 @@ def extract():
         "product": product,
         "category": category,
         "product_category": product_category,
+        "old_price": old_price,
     }
