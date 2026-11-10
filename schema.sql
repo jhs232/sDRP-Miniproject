@@ -30,3 +30,19 @@ CREATE TABLE IF NOT EXISTS location (
     name TEXT NOT NULL,
     is_event BOOLEAN NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS product (
+    product_id SERIAL PRIMARY KEY,
+    item_id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    brand TEXT NOT NULL,
+    volume INTEGER,
+    type TEXT NOT NULL,
+    category TEXT NOT NULL,
+    consumable BOOLEAN NOT NULL,
+    contains_alcohol BOOLEAN NOT NULL,
+    price INTEGER NOT NULL,
+    valid_from TIMESTAMPTZ,
+    valid_to TIMESTAMPTZ,
+    CHECK (valid_from < valid_to)
+);
