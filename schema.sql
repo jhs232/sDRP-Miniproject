@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS member (
 );
 
 CREATE TABLE IF NOT EXISTS time (
-    time_id SERIAL PRIMARY KEY,
+    time_id INTEGER PRIMARY KEY,
     hour INTEGER NOT NULL,
     minute INTEGER NOT NULL,
     on_break BOOLEAN NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS time (
 );
 
 CREATE TABLE IF NOT EXISTS date (
-    date_id SERIAL PRIMARY KEY,
+    date_id INTEGER PRIMARY KEY,
     day INTEGER NOT NULL,
     month INTEGER NOT NULL,
     year INTEGER NOT NULL,
@@ -25,8 +25,17 @@ CREATE TABLE IF NOT EXISTS date (
 );
 
 CREATE TABLE IF NOT EXISTS location (
-    id SERIAL PRIMARY KEY,
+    place_id INTEGER PRIMARY KEY,
     place_id INTEGER NOT NULL UNIQUE,
     name TEXT NOT NULL,
     is_event BOOLEAN NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS sale (
+    sale_id INTEGER PRIMARY KEY,
+    member_id INTEGER REFERENCES member(member_id),
+    date_id INTEGER REFERENCES date(date_id),
+    time_id INTEGER REFERENCES time(time_id),
+    location_id INTEGER REFERENCES location(location_id)
+);
+

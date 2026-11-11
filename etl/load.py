@@ -32,8 +32,8 @@ def load(transformed_data):
 def load_location_dimension(connection, location_data):
     location_dimension = CachedDimension(
         name="location",
-        key="id",
-        attributes=["place_id", "name", "is_event"],
+        key="place_id",
+        attributes=["name", "is_event"],
         lookupatts=["place_id"],
         targetconnection=connection,
     )
