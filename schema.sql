@@ -31,6 +31,22 @@ CREATE TABLE IF NOT EXISTS location (
     is_event BOOLEAN NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS product (
+    product_id SERIAL PRIMARY KEY,
+    item_id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    brand TEXT NOT NULL,
+    volume INTEGER,
+    type TEXT NOT NULL,
+    category TEXT NOT NULL,
+    consumable BOOLEAN NOT NULL,
+    contains_alcohol BOOLEAN NOT NULL,
+    price INTEGER NOT NULL,
+    valid_from TIMESTAMPTZ,
+    valid_to TIMESTAMPTZ,
+    CHECK (valid_from < valid_to)
+);
+
 CREATE TABLE IF NOT EXISTS sale (
     sale_id INTEGER PRIMARY KEY,
     member_id INTEGER REFERENCES member(member_id),
