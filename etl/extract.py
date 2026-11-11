@@ -1,5 +1,6 @@
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 dir = Path(__file__).resolve().parents[1] / "fklubdata"
 

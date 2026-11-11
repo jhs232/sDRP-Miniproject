@@ -1,7 +1,9 @@
 from datetime import date, timedelta
 from enum import Enum
+
 import pandas as pd
-from pygrametl.tables import CachedDimension
+from pygrametl.tables import CachedDimension, SlowlyChangingDimension
+
 from db import connect
 
 
@@ -47,21 +49,24 @@ def load_location_dimension(connection, location_data):
 
 
 def load_member_dimension(connection, member_data):
-    
+
     member_dimension = CachedDimension(
         name="member",
         key="member_id",
         attributes=["signup_year", "gender"],
         lookupatts=["member_id"],
-        targetconnection=connection
+        targetconnection=connection,
     )
 
     for row in member_data.to_dict("records"):
-        member_dimension.ensure({
-            "member_id": row["id"],
-            "signup_year": row["year"],
-            "gender": row["gender"]
-        })
+        member_dimension.ensure(
+            {
+                "member_id": row["id"],
+                "signup_year": row["year"],
+                "gender": row["gender"],
+            }
+        )
+
 
 def load_product_dimension(connection, product_data):
     attributes = [
@@ -74,30 +79,33 @@ def load_product_dimension(connection, product_data):
         "consumable",
         "contains_alcohol",
         "price",
-        "valid_from",
-        "valid_to",
     ]
 
-    product_dimension = CachedDimension(
+    product_dimension = SlowlyChangingDimension(
         name="product",
         key="product_id",
-        attributes=attributes,
+        attributes=[*attributes, "valid_from", "valid_to"],
+        lookupatts=["item_id"],
+        fromatt="valid_from",
+        toatt="valid_to",
+        fromfinder=lambda connection, row, namemapping: row["changed_on"],
+        minfrom=(None,),
+        maxto=None,
         targetconnection=connection,
     )
 
     for row in product_data.to_dict("records"):
         product = {attribute: row[attribute] for attribute in attributes}
 
-        for column in ("valid_from", "valid_to"):
-            if pd.isna(product[column]):
-                product[column] = None
-            else:
-                product[column] = product[column].to_pydatetime()
+        changed_on = row["changed_on"]
+        product["changed_on"] = (
+            None if pd.isna(changed_on) else changed_on.to_pydatetime()
+        )
 
         if pd.isna(product["volume"]) or product["volume"] == "Unknown":
             product["volume"] = None
 
-        product_dimension.insert(product)
+        product_dimension.scdensure(product)
 
 
 def prefill_date_dimension(connection):
@@ -108,18 +116,21 @@ def prefill_date_dimension(connection):
         key="date_id",
         attributes=["day", "month", "year", "period", "working_day"],
         lookupatts=["year", "month", "day"],
-        targetconnection=connection
+        targetconnection=connection,
     )
 
     for row in date_dimension_data:
-        date_dimension.ensure({
-            "date_id": row['year']*10000 + row['month']*100 + row['day'],
-            "day": row["day"],
-            "month": row["month"],
-            "year": row["year"],
-            "period": row["period"],
-            "working_day": row["working_day"]
-        })
+        date_dimension.ensure(
+            {
+                "date_id": row["year"] * 10000 + row["month"] * 100 + row["day"],
+                "day": row["day"],
+                "month": row["month"],
+                "year": row["year"],
+                "period": row["period"],
+                "working_day": row["working_day"],
+            }
+        )
+
 
 def prefill_time_dimension(connection):
     time_dimension_data = generate_time_data()
@@ -129,17 +140,20 @@ def prefill_time_dimension(connection):
         key="time_id",
         attributes=["minute", "hour", "on_break", "schedule_slot"],
         lookupatts=["hour", "minute"],
-        targetconnection=connection
+        targetconnection=connection,
     )
 
     for row in time_dimension_data:
-        time_dimension.ensure({
-            "time_id": row['hour']*60 + row['minute'],
-            "minute": row["minute"],
-            "hour": row["hour"],
-            "on_break": row["on_break"],
-            "schedule_slot": row["schedule_slot"]
-        })
+        time_dimension.ensure(
+            {
+                "time_id": row["hour"] * 60 + row["minute"],
+                "minute": row["minute"],
+                "hour": row["hour"],
+                "on_break": row["on_break"],
+                "schedule_slot": row["schedule_slot"],
+            }
+        )
+
 
 def generate_date_data(start_date, end_date):
     dates = []
@@ -147,17 +161,20 @@ def generate_date_data(start_date, end_date):
     current = start_date
 
     while current <= end_date:
-        dates.append({
-            "day": current.day,
-            "month": current.month,
-            "year": current.year,
-            "period": period(current.month),
-            "working_day": current.weekday() < 5 and not holidays(current)
-        })
+        dates.append(
+            {
+                "day": current.day,
+                "month": current.month,
+                "year": current.year,
+                "period": period(current.month),
+                "working_day": current.weekday() < 5 and not holidays(current),
+            }
+        )
 
         current += timedelta(days=1)
 
     return dates
+
 
 def generate_time_data():
     times = []
@@ -166,14 +183,17 @@ def generate_time_data():
         hour = minute // 60
         minute %= 60
 
-        times.append({
-            "minute": minute,
-            "hour": hour,
-            "on_break": on_break(hour, minute),
-            "schedule_slot": schedule_slot(hour, minute)
-        })
+        times.append(
+            {
+                "minute": minute,
+                "hour": hour,
+                "on_break": on_break(hour, minute),
+                "schedule_slot": schedule_slot(hour, minute),
+            }
+        )
 
-    return times    
+    return times
+
 
 def period(month):
     if month in (2, 3, 4, 5):
@@ -184,7 +204,8 @@ def period(month):
         return Period.FALL_SEMESTER.value
     else:
         return Period.EXAM_PERIOD.value
-    
+
+
 def on_break(hour, minute):
     current_minute = hour * 60 + minute
     return any(
@@ -195,6 +216,7 @@ def on_break(hour, minute):
             range(14 * 60 + 16, 14 * 60 + 30),
         )
     )
+
 
 def schedule_slot(hour, minute):
     current_minute = hour * 60 + minute
@@ -208,24 +230,33 @@ def schedule_slot(hour, minute):
     for start, end, slot in slots:
         if start <= current_minute <= end:
             return slot
-        
+
     return None
+
 
 def holidays(day):
     """Return whether day is a Danish public holiday."""
     easter_sunday = calculate_easter_sunday(day.year)
 
-    holidays = ({
-        date(day.year, 1, 1),                # nytårsdag
-        easter_sunday - timedelta(days=3),   # skærtorsdag
-        easter_sunday - timedelta(days=2),   # langfredag
-        easter_sunday,                       # påskedag
-        easter_sunday + timedelta(days=1),   # 2. påskedag
-        easter_sunday + timedelta(days=39),  # kristihimmelfartsdag
-        easter_sunday + timedelta(days=49),  # pinsedag
-        easter_sunday + timedelta(days=50),  # 2. pinsedag
-    }| {date(day.year, 12, day_of_month) for day_of_month in range(24, 32)} #juleferie
-    )| {date(day.year, month, day_of_month) for day_of_month in range(1, 32) for month in (7,8)} #sommerferie
+    holidays = (
+        {
+            date(day.year, 1, 1),  # nytårsdag
+            easter_sunday - timedelta(days=3),  # skærtorsdag
+            easter_sunday - timedelta(days=2),  # langfredag
+            easter_sunday,  # påskedag
+            easter_sunday + timedelta(days=1),  # 2. påskedag
+            easter_sunday + timedelta(days=39),  # kristihimmelfartsdag
+            easter_sunday + timedelta(days=49),  # pinsedag
+            easter_sunday + timedelta(days=50),  # 2. pinsedag
+        }
+        | {
+            date(day.year, 12, day_of_month) for day_of_month in range(24, 32)
+        }  # juleferie
+    ) | {
+        date(day.year, month, day_of_month)
+        for day_of_month in range(1, 32)
+        for month in (7, 8)
+    }  # sommerferie
 
     # vi må ikke glemme store Bededag (RIP)
     if day.year <= 2023:
