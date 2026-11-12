@@ -1,5 +1,16 @@
-CREATE TYPE gender_type AS ENUM ('Male', 'Female', 'Unknown');
-CREATE TYPE period_type AS ENUM ('sping_semester', 'fall_semester', 'summer_break', 'exam_period');
+DO $$
+BEGIN
+    CREATE TYPE gender_type AS ENUM ('Male', 'Female', 'Unknown');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $$;
+
+DO $$
+BEGIN
+    CREATE TYPE period_type AS ENUM ('sping_semester', 'fall_semester', 'summer_break', 'exam_period');
+EXCEPTION
+    WHEN duplicate_object THEN NULL;
+END $$;
 
 CREATE TABLE IF NOT EXISTS member (
     member_id INTEGER PRIMARY KEY,
@@ -26,7 +37,6 @@ CREATE TABLE IF NOT EXISTS date (
 
 CREATE TABLE IF NOT EXISTS location (
     place_id INTEGER PRIMARY KEY,
-    place_id INTEGER NOT NULL UNIQUE,
     name TEXT NOT NULL,
     is_event BOOLEAN NOT NULL
 );
@@ -48,10 +58,12 @@ CREATE TABLE IF NOT EXISTS product (
 );
 
 CREATE TABLE IF NOT EXISTS sale (
-    sale_id INTEGER PRIMARY KEY,
     member_id INTEGER REFERENCES member(member_id),
     date_id INTEGER REFERENCES date(date_id),
     time_id INTEGER REFERENCES time(time_id),
-    location_id INTEGER REFERENCES location(location_id)
-);
+    location_id INTEGER REFERENCES location(place_id),
+    product_id INTEGER REFERENCES product(product_id),
+    total_price INTEGER NOT NULL,
 
+    PRIMARY KEY (member_id, date_id, time_id, location_id, product_id)
+);

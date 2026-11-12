@@ -262,7 +262,6 @@ PRODUCT_TYPE = {
     1874: ProductType.VITAMIN_WATER,       # Vitamin Well - Citron/Kaktus
 }
 
-
 def transform(data):
     data["member"] = transform_member(data["member"])
     data["location"] = transform_location(data["location"])
@@ -272,15 +271,15 @@ def transform(data):
 
     return data
 
-
 def transform_sale(data):
     sale_data = data["sale"]
+    product_data = data["product"]
 
     # Filter out invalid sales based on member_id, room_id, and product_id
     valid_sale = (
         sale_data["member_id"].isin(data["member"]["id"])
         & sale_data["room_id"].isin(data["location"]["id"])
-        & sale_data["product_id"].isin(data["product"]["product_id"])
+        & sale_data["product_id"].isin(product_data["item_id"])
     )
     filtered_data = sale_data.loc[valid_sale].copy() 
 
@@ -294,12 +293,48 @@ def transform_sale(data):
     filtered_data = filtered_data.loc[timestamps.notna()].copy()
     timestamps = timestamps.loc[filtered_data.index]
     target_timezone = timezone(timedelta(hours=1))
-    timestamps = timestamps.map(
+    local_timestamps = timestamps.map(
         lambda timestamp: (
             timestamp.tz_localize(target_timezone)
             if timestamp.tzinfo is None
             else timestamp.tz_convert(target_timezone)
         )
+    )
+    filtered_data["item_id"] = filtered_data["product_id"]
+    filtered_data = filtered_data.drop(columns=["product_id"])
+    filtered_data["_sale_timestamp"] = pd.to_datetime(
+        local_timestamps.map(lambda timestamp: timestamp.tz_convert(timezone.utc)),
+        utc=True,
+    ).astype("datetime64[ns, UTC]")
+
+    version_lookup = product_data[
+        ["product_id", "item_id", "valid_from", "valid_to"]
+    ].copy()
+    version_lookup["valid_from"] = pd.to_datetime(
+        version_lookup["valid_from"], utc=True
+    ).astype("datetime64[ns, UTC]")
+    version_lookup["valid_from"] = version_lookup["valid_from"].fillna(
+        pd.Timestamp.min.tz_localize("UTC")
+    )
+    version_lookup["valid_to"] = pd.to_datetime(
+        version_lookup["valid_to"], utc=True
+    ).astype("datetime64[ns, UTC]")
+
+    filtered_data = pd.merge_asof(
+        filtered_data.sort_values(["_sale_timestamp", "item_id"]),
+        version_lookup.sort_values(["valid_from", "item_id"]),
+        left_on="_sale_timestamp",
+        right_on="valid_from",
+        by="item_id",
+        direction="backward",
+    )
+    valid_version = (
+        filtered_data["valid_to"].isna()
+        | (filtered_data["_sale_timestamp"] < filtered_data["valid_to"])
+    )
+    filtered_data = filtered_data.loc[valid_version].copy()
+    timestamps = filtered_data["_sale_timestamp"].map(
+        lambda timestamp: timestamp.tz_convert(target_timezone)
     )
 
     filtered_data["date_id"] = (
@@ -312,7 +347,20 @@ def transform_sale(data):
         + timestamps.map(lambda timestamp: timestamp.minute)
     )
 
-    return filtered_data.drop(columns=["timestamp"])
+    grouped_data = (
+        filtered_data.drop(
+            columns=["timestamp", "id", "item_id", "_sale_timestamp", "valid_from", "valid_to"],
+            errors="ignore",
+        )
+        .groupby(
+            ["member_id", "room_id", "product_id", "date_id", "time_id"],
+            as_index=False,
+            sort=False,
+        )["price"]
+        .sum()
+    )
+
+    return grouped_data
 
 def transform_member(member_data):
     valid_genders = {"M", "F", "U"}
@@ -538,7 +586,11 @@ def build_product_versions(products, old_prices):
             })
 
     columns = [*products.columns, "valid_from", "valid_to"]
-    return pd.DataFrame(versions, columns=columns).rename(columns={"id": "item_id"})
+    version_data = pd.DataFrame(versions, columns=columns).rename(
+        columns={"id": "item_id"}
+    )
+    version_data.insert(0, "product_id", range(1, len(version_data) + 1))
+    return version_data
 
 
 def get_brand(name, known_brands, brand_overrides):

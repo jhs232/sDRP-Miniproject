@@ -1,7 +1,8 @@
 from datetime import date, timedelta
 from enum import Enum
+from pathlib import Path
 import pandas as pd
-from pygrametl.tables import CachedDimension
+from pygrametl.tables import CachedDimension, FactTable
 from db import connect
 
 
@@ -15,11 +16,14 @@ class Period(str, Enum):
 def load(transformed_data):
     connection = connect()
     try:
+        initialize_schema(connection)
+        reset_warehouse(connection)
         load_member_dimension(connection, transformed_data["member"])
         load_location_dimension(connection, transformed_data["location"])
         load_product_dimension(connection, transformed_data["product"])
         prefill_date_dimension(connection)
         prefill_time_dimension(connection)
+        load_sale_fact(connection, transformed_data["sale"])
 
         connection.commit()
     except Exception:
@@ -30,6 +34,33 @@ def load(transformed_data):
 
     return transformed_data
 
+def initialize_schema(connection):
+    schema_path = Path(__file__).resolve().parents[1] / "schema.sql"
+    connection.execute(schema_path.read_text())
+
+def reset_warehouse(connection):
+    connection.execute(
+        "TRUNCATE TABLE sale, product, location, date, time, member "
+        "RESTART IDENTITY CASCADE"
+    )
+
+def load_sale_fact(connection, sale_data):
+    sale_fact = FactTable(
+        name="sale",
+        keyrefs=["member_id", "date_id", "time_id", "location_id", "product_id"],
+        measures=["total_price"],
+        targetconnection=connection,
+    )
+
+    for row in sale_data.to_dict("records"):
+        sale_fact.insert({
+            "member_id": row["member_id"],
+            "date_id": row["date_id"],
+            "time_id": row["time_id"],
+            "location_id": row["room_id"],
+            "product_id": row["product_id"],
+            "total_price": row["price"]
+        })
 
 def load_location_dimension(connection, location_data):
     location_dimension = CachedDimension(
@@ -87,6 +118,7 @@ def load_product_dimension(connection, product_data):
 
     for row in product_data.to_dict("records"):
         product = {attribute: row[attribute] for attribute in attributes}
+        product["product_id"] = row["product_id"]
 
         for column in ("valid_from", "valid_to"):
             if pd.isna(product[column]):
