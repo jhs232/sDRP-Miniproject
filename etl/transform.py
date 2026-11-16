@@ -279,7 +279,7 @@ def transform_sale(data):
     valid_sale = (
         sale_data["member_id"].isin(data["member"]["id"])
         & sale_data["room_id"].isin(data["location"]["id"])
-        & sale_data["product_id"].isin(product_data["item_id"])
+        & sale_data["product_id"].isin(product_data["product_id"])
     )
     filtered_data = sale_data.loc[valid_sale].copy() 
 
@@ -300,7 +300,7 @@ def transform_sale(data):
             else timestamp.tz_convert(target_timezone)
         )
     )
-    filtered_data["item_id"] = filtered_data["product_id"]
+    filtered_data["source_product_id"] = filtered_data["product_id"]
     filtered_data = filtered_data.drop(columns=["product_id"])
     filtered_data["_sale_timestamp"] = pd.to_datetime(
         local_timestamps.map(lambda timestamp: timestamp.tz_convert(timezone.utc)),
@@ -308,7 +308,7 @@ def transform_sale(data):
     ).astype("datetime64[ns, UTC]")
 
     version_lookup = product_data[
-        ["product_id", "item_id", "valid_from", "valid_to"]
+        ["item_version_id", "product_id", "valid_from", "valid_to"]
     ].copy()
     version_lookup["valid_from"] = pd.to_datetime(
         version_lookup["valid_from"], utc=True
@@ -321,11 +321,12 @@ def transform_sale(data):
     ).astype("datetime64[ns, UTC]")
 
     filtered_data = pd.merge_asof(
-        filtered_data.sort_values(["_sale_timestamp", "item_id"]),
-        version_lookup.sort_values(["valid_from", "item_id"]),
+        filtered_data.sort_values(["_sale_timestamp", "source_product_id"]),
+        version_lookup.sort_values(["valid_from", "product_id"]),
         left_on="_sale_timestamp",
         right_on="valid_from",
-        by="item_id",
+        left_by="source_product_id",
+        right_by="product_id",
         direction="backward",
     )
     valid_version = (
@@ -333,6 +334,7 @@ def transform_sale(data):
         | (filtered_data["_sale_timestamp"] < filtered_data["valid_to"])
     )
     filtered_data = filtered_data.loc[valid_version].copy()
+    filtered_data["price"] = filtered_data["price"] / 100
     timestamps = filtered_data["_sale_timestamp"].map(
         lambda timestamp: timestamp.tz_convert(target_timezone)
     )
@@ -349,11 +351,19 @@ def transform_sale(data):
 
     grouped_data = (
         filtered_data.drop(
-            columns=["timestamp", "id", "item_id", "_sale_timestamp", "valid_from", "valid_to"],
+            columns=[
+                "timestamp",
+                "id",
+                "source_product_id",
+                "product_id",
+                "_sale_timestamp",
+                "valid_from",
+                "valid_to",
+            ],
             errors="ignore",
         )
         .groupby(
-            ["member_id", "room_id", "product_id", "date_id", "time_id"],
+            ["member_id", "room_id", "item_version_id", "date_id", "time_id"],
             as_index=False,
             sort=False,
         )["price"]
@@ -409,6 +419,7 @@ def transform_location(location_data):
 
 def transform_product(product_data):
     product_data = product_data[["id", "name", "price", "alcohol_content_ml"]].copy()
+    product_data["price"] = product_data["price"] / 100
 
     missing_ids = set(product_data["id"]) - PRODUCT_TYPE.keys()
     if missing_ids:
@@ -564,13 +575,13 @@ def prepare_product_changes(products, old_prices):
         for change in changes:
             product_changes.append({
                 **product,
-                "price": change["price"],
+                "price": change["price"] / 100,
                 "changed_on": change["changed_on"],
             })
 
     columns = [*products.columns, "changed_on"]
     return pd.DataFrame(product_changes, columns=columns).rename(
-        columns={"id": "item_id"}
+        columns={"id": "product_id"}
     )
 
 
@@ -578,7 +589,7 @@ def build_product_versions(products, old_prices):
     changes = prepare_product_changes(products, old_prices)
     versions = []
 
-    for item_id, product_changes in changes.groupby("item_id", sort=False):
+    for product_id, product_changes in changes.groupby("product_id", sort=False):
         product_changes = product_changes.sort_values("changed_on", na_position="first")
         previous_price = product_changes["price"].shift()
         product_changes = product_changes.loc[
@@ -597,7 +608,7 @@ def build_product_versions(products, old_prices):
 
     columns = [*changes.columns, "valid_from", "valid_to"]
     version_data = pd.DataFrame(versions, columns=columns)
-    version_data.insert(0, "product_id", range(1, len(version_data) + 1))
+    version_data.insert(0, "item_version_id", range(1, len(version_data) + 1))
     return version_data
 
 

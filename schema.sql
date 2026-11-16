@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS time (
 CREATE TABLE IF NOT EXISTS date (
     date_id INTEGER PRIMARY KEY,
     day INTEGER NOT NULL,
-    month INTEGER NOT NULL,
+    month TEXT NOT NULL,
     year INTEGER NOT NULL,
     period period_type NOT NULL,
     working_day BOOLEAN NOT NULL
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS location (
 );
 
 CREATE TABLE IF NOT EXISTS product (
-    product_id SERIAL PRIMARY KEY,
-    item_id INTEGER NOT NULL,
+    item_version_id SERIAL PRIMARY KEY,
+    product_id INTEGER NOT NULL,
     name TEXT NOT NULL,
     brand TEXT NOT NULL,
     volume INTEGER,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS product (
     category TEXT NOT NULL,
     consumable BOOLEAN NOT NULL,
     contains_alcohol BOOLEAN NOT NULL,
-    price INTEGER NOT NULL,
+    price NUMERIC(10, 2) NOT NULL,
     valid_from TIMESTAMPTZ,
     valid_to TIMESTAMPTZ,
     CHECK (valid_from < valid_to)
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS sale (
     date_id INTEGER REFERENCES date(date_id),
     time_id INTEGER REFERENCES time(time_id),
     location_id INTEGER REFERENCES location(place_id),
-    product_id INTEGER REFERENCES product(product_id),
-    total_price INTEGER NOT NULL,
+    item_version_id INTEGER REFERENCES product(item_version_id),
+    total_price NUMERIC(10, 2) NOT NULL,
 
-    PRIMARY KEY (member_id, date_id, time_id, location_id, product_id)
+    PRIMARY KEY (member_id, date_id, time_id, location_id, item_version_id)
 );

@@ -1,8 +1,9 @@
 from datetime import date, timedelta
 from enum import Enum
 from pathlib import Path
+import sys
 import pandas as pd
-from pygrametl.tables import CachedDimension, FactTable, SlowlyChangingDimension
+from pygrametl.tables import BatchFactTable, CachedDimension, SlowlyChangingDimension
 
 from db import connect
 
@@ -17,16 +18,20 @@ class Period(str, Enum):
 def load(transformed_data):
     connection = connect()
     try:
+        print("Initializing warehouse...")
         initialize_schema(connection)
         reset_warehouse(connection)
+        print("Loading dimensions...")
         load_member_dimension(connection, transformed_data["member"])
         load_location_dimension(connection, transformed_data["location"])
         load_product_dimension(connection, transformed_data["product"])
         prefill_date_dimension(connection)
         prefill_time_dimension(connection)
+        print("Loading sales...")
         load_sale_fact(connection, transformed_data["sale"])
 
         connection.commit()
+        print("Pipeline completed.")
     except Exception:
         connection.rollback()
         raise
@@ -34,6 +39,18 @@ def load(transformed_data):
         connection.close()
 
     return transformed_data
+
+def show_progress(iterable, label, total):
+    update_interval = max(1, total // 100)
+
+    for index, item in enumerate(iterable, start=1):
+        yield item
+        if index == 1 or index % update_interval == 0 or index == total:
+            percentage = index / total * 100
+            sys.stdout.write(f"\r{label}: {index}/{total} ({percentage:.0f}%)")
+            sys.stdout.flush()
+
+    print()
 
 def initialize_schema(connection):
     schema_path = Path(__file__).resolve().parents[1] / "schema.sql"
@@ -46,22 +63,33 @@ def reset_warehouse(connection):
     )
 
 def load_sale_fact(connection, sale_data):
-    sale_fact = FactTable(
+    sale_fact = BatchFactTable(
         name="sale",
-        keyrefs=["member_id", "date_id", "time_id", "location_id", "product_id"],
+        keyrefs=[
+            "member_id",
+            "date_id",
+            "time_id",
+            "location_id",
+            "item_version_id",
+        ],
         measures=["total_price"],
+        batchsize=50000,
         targetconnection=connection,
     )
 
-    for row in sale_data.to_dict("records"):
+    for row in show_progress(
+        sale_data.to_dict("records"), "Sales", len(sale_data)
+    ):
         sale_fact.insert({
             "member_id": row["member_id"],
             "date_id": row["date_id"],
             "time_id": row["time_id"],
             "location_id": row["room_id"],
-            "product_id": row["product_id"],
+            "item_version_id": row["item_version_id"],
             "total_price": row["price"]
         })
+
+    sale_fact.endload()
 
 def load_location_dimension(connection, location_data):
     location_dimension = CachedDimension(
@@ -72,7 +100,9 @@ def load_location_dimension(connection, location_data):
         targetconnection=connection,
     )
 
-    for row in location_data.to_dict("records"):
+    for row in show_progress(
+        location_data.to_dict("records"), "Locations", len(location_data)
+    ):
         location_dimension.ensure(
             {"place_id": row["id"], "name": row["name"], "is_event": row["is_event"]}
         )
@@ -88,7 +118,9 @@ def load_member_dimension(connection, member_data):
         targetconnection=connection,
     )
 
-    for row in member_data.to_dict("records"):
+    for row in show_progress(
+        member_data.to_dict("records"), "Members", len(member_data)
+    ):
         member_dimension.ensure(
             {
                 "member_id": row["id"],
@@ -100,7 +132,7 @@ def load_member_dimension(connection, member_data):
 
 def load_product_dimension(connection, product_data):
     attributes = [
-        "item_id",
+        "product_id",
         "name",
         "brand",
         "volume",
@@ -113,9 +145,9 @@ def load_product_dimension(connection, product_data):
 
     product_dimension = SlowlyChangingDimension(
         name="product",
-        key="product_id",
+        key="item_version_id",
         attributes=[*attributes, "valid_from", "valid_to"],
-        lookupatts=["item_id"],
+        lookupatts=["product_id"],
         fromatt="valid_from",
         toatt="valid_to",
         fromfinder=lambda connection, row, namemapping: row["changed_on"],
@@ -124,7 +156,9 @@ def load_product_dimension(connection, product_data):
         targetconnection=connection,
     )
 
-    for row in product_data.to_dict("records"):
+    for row in show_progress(
+        product_data.to_dict("records"), "Products", len(product_data)
+    ):
         product = {attribute: row[attribute] for attribute in attributes}
 
         changed_on = row["changed_on"]
@@ -144,15 +178,23 @@ def prefill_date_dimension(connection):
     date_dimension = CachedDimension(
         name="date",
         key="date_id",
-        attributes=["day", "month", "year", "period", "working_day"],
+        attributes=[
+            "day",
+            "month",
+            "year",
+            "period",
+            "working_day",
+        ],
         lookupatts=["year", "month", "day"],
         targetconnection=connection,
     )
 
-    for row in date_dimension_data:
+    for row in show_progress(
+        date_dimension_data, "Dates", len(date_dimension_data)
+    ):
         date_dimension.ensure(
             {
-                "date_id": row["year"] * 10000 + row["month"] * 100 + row["day"],
+                "date_id": row["date_id"],
                 "day": row["day"],
                 "month": row["month"],
                 "year": row["year"],
@@ -173,7 +215,9 @@ def prefill_time_dimension(connection):
         targetconnection=connection,
     )
 
-    for row in time_dimension_data:
+    for row in show_progress(
+        time_dimension_data, "Times", len(time_dimension_data)
+    ):
         time_dimension.ensure(
             {
                 "time_id": row["hour"] * 60 + row["minute"],
@@ -193,8 +237,9 @@ def generate_date_data(start_date, end_date):
     while current <= end_date:
         dates.append(
             {
+                "date_id": current.year * 10000 + current.month * 100 + current.day,
                 "day": current.day,
-                "month": current.month,
+                "month": current.strftime("%B"),
                 "year": current.year,
                 "period": period(current.month),
                 "working_day": current.weekday() < 5 and not holidays(current),
