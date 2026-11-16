@@ -266,7 +266,7 @@ def transform(data):
     data["member"] = transform_member(data["member"])
     data["location"] = transform_location(data["location"])
     products = transform_product(data["product"])
-    data["product"] = prepare_product_changes(products, data["old_price"])
+    data["product"] = build_product_versions(products, data["old_price"])
     data["sale"] = transform_sale(data)
 
     return data
@@ -569,7 +569,36 @@ def prepare_product_changes(products, old_prices):
             })
 
     columns = [*products.columns, "changed_on"]
-    return pd.DataFrame(product_changes, columns=columns).rename(columns={"id": "item_id"})
+    return pd.DataFrame(product_changes, columns=columns).rename(
+        columns={"id": "item_id"}
+    )
+
+
+def build_product_versions(products, old_prices):
+    changes = prepare_product_changes(products, old_prices)
+    versions = []
+
+    for item_id, product_changes in changes.groupby("item_id", sort=False):
+        product_changes = product_changes.sort_values("changed_on", na_position="first")
+        previous_price = product_changes["price"].shift()
+        product_changes = product_changes.loc[
+            product_changes["price"].ne(previous_price)
+        ]
+        rows = product_changes.to_dict("records")
+
+        for index, row in enumerate(rows):
+            valid_from = None if index == 0 else row["changed_on"]
+            valid_to = rows[index + 1]["changed_on"] if index + 1 < len(rows) else None
+            versions.append({
+                **row,
+                "valid_from": valid_from,
+                "valid_to": valid_to,
+            })
+
+    columns = [*changes.columns, "valid_from", "valid_to"]
+    version_data = pd.DataFrame(versions, columns=columns)
+    version_data.insert(0, "product_id", range(1, len(version_data) + 1))
+    return version_data
 
 
 def get_brand(name, known_brands, brand_overrides):
