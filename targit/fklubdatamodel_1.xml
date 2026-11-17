@@ -1,0 +1,145 @@
+﻿<analysisDatabase version="2" name="" color="#FFD3D3D3" locked="false" standard="false">
+  <designertabs />
+  <tablerelations>
+    <table catalog="dwexa" schema="public" name="date">
+      <bounds tab="Global" collapsed="false" x="62" y="267" width="150" height="200" />
+    </table>
+    <table catalog="dwexa" schema="public" name="location">
+      <bounds tab="Global" collapsed="false" x="649" y="407" width="150" height="200" />
+    </table>
+    <table catalog="dwexa" schema="public" name="member">
+      <bounds tab="Global" collapsed="false" x="196" y="30" width="150" height="200" />
+    </table>
+    <table catalog="dwexa" schema="public" name="product">
+      <bounds tab="Global" collapsed="false" x="758" y="121" width="150" height="200" />
+    </table>
+    <table catalog="dwexa" schema="public" name="sale">
+      <bounds tab="Global" collapsed="false" x="474" y="155" width="150" height="200" />
+      <join detailcatalog="dwexa" detailschema="public" detailtable="member" lastmodified="2026-11-17T17:29:57.8928197Z">
+        <joincolumn master="member_id" detail="member_id" />
+      </join>
+      <join detailcatalog="dwexa" detailschema="public" detailtable="date" lastmodified="2026-11-17T17:30:01.2169501Z">
+        <joincolumn master="date_id" detail="date_id" />
+      </join>
+      <join detailcatalog="dwexa" detailschema="public" detailtable="time" lastmodified="2026-11-17T17:30:04.5363345Z">
+        <joincolumn master="time_id" detail="time_id" />
+      </join>
+      <join detailcatalog="dwexa" detailschema="public" detailtable="location" lastmodified="2026-11-17T17:30:09.377042Z">
+        <joincolumn master="location_id" detail="place_id" />
+      </join>
+      <join detailcatalog="dwexa" detailschema="public" detailtable="product" lastmodified="2026-11-17T17:30:13.9603136Z">
+        <joincolumn master="item_version_id" detail="item_version_id" />
+      </join>
+    </table>
+    <table catalog="dwexa" schema="public" name="time">
+      <bounds tab="Global" collapsed="false" x="241" y="402" width="150" height="200" />
+    </table>
+  </tablerelations>
+  <shareddimensions>
+    <dimension name="Date Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:45:32.3407532Z">
+      <hierarchy name="year" visible="true" lastmodified="2026-11-17T17:32:19.8912424Z">
+        <table catalog="dwexa" schema="public">date</table>
+        <level name="year" order="name" type="regular" lastmodified="2026-11-17T17:33:15.6137489Z">
+          <namecolumn datatype="integer" datasize="0">year</namecolumn>
+          <keycolumn datatype="integer" datasize="0">year</keycolumn>
+          <table catalog="dwexa" schema="public">date</table>
+        </level>
+        <level name="month" order="name" type="regular" lastmodified="2026-11-17T17:33:18.218117Z">
+          <namecolumn datatype="string" datasize="8190">month</namecolumn>
+          <keycolumn datatype="string" datasize="8190">month</keycolumn>
+          <table catalog="dwexa" schema="public">date</table>
+          <memberproperty name="period">period</memberproperty>
+        </level>
+        <level name="day" order="name" type="regular" lastmodified="2026-11-17T17:33:20.6035924Z">
+          <namecolumn datatype="integer" datasize="0">day</namecolumn>
+          <keycolumn datatype="integer" datasize="0">day</keycolumn>
+          <table catalog="dwexa" schema="public">date</table>
+          <memberproperty name="working_day">working_day</memberproperty>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Time Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:45:07.6491247Z">
+      <hierarchy name="hour" visible="true" lastmodified="2026-11-17T17:32:33.0135444Z">
+        <table catalog="dwexa" schema="public">time</table>
+        <level name="hour" order="name" type="regular" lastmodified="2026-11-17T17:32:33.0135339Z">
+          <namecolumn datatype="integer" datasize="0">hour</namecolumn>
+          <keycolumn datatype="integer" datasize="0">hour</keycolumn>
+          <table catalog="dwexa" schema="public">time</table>
+        </level>
+        <level name="minute" order="name" type="regular">
+          <namecolumn datatype="integer" datasize="0">minute</namecolumn>
+          <keycolumn datatype="integer" datasize="0">minute</keycolumn>
+          <table catalog="dwexa" schema="public">time</table>
+          <memberproperty name="on_break">on_break</memberproperty>
+          <memberproperty name="schedule_slot">schedule_slot</memberproperty>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Product Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:44:21.6538098Z">
+      <hierarchy name="category" visible="true" lastmodified="2026-11-17T17:42:04.7936255Z">
+        <table catalog="dwexa" schema="public">product</table>
+        <level name="Category" order="name" type="regular" lastmodified="2026-11-17T17:43:37.4336744Z">
+          <namecolumn datatype="string" datasize="8190">category</namecolumn>
+          <keycolumn datatype="string" datasize="8190">category</keycolumn>
+          <table catalog="dwexa" schema="public">product</table>
+          <memberproperty name="Consumable">consumable</memberproperty>
+        </level>
+        <level name="Type" order="name" type="regular" lastmodified="2026-11-17T17:43:41.4708463Z">
+          <namecolumn datatype="string" datasize="8190">type</namecolumn>
+          <keycolumn datatype="string" datasize="8190">type</keycolumn>
+          <table catalog="dwexa" schema="public">product</table>
+        </level>
+        <level name="name" order="name" type="regular" lastmodified="2026-11-17T17:43:41.477447Z">
+          <namecolumn datatype="string" datasize="8190">name</namecolumn>
+          <keycolumn datatype="string" datasize="8190">name</keycolumn>
+          <table catalog="dwexa" schema="public">product</table>
+          <memberproperty name="brand">brand</memberproperty>
+          <memberproperty name="volume">volume</memberproperty>
+          <memberproperty name="contains_alcohol">contains_alcohol</memberproperty>
+          <memberproperty name="price">price</memberproperty>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Location Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:45:22.4413238Z">
+      <hierarchy name="name" visible="true" lastmodified="2026-11-17T17:43:00.2028226Z">
+        <table catalog="dwexa" schema="public">location</table>
+        <level name="name" order="name" type="regular" lastmodified="2026-11-17T17:43:00.2028155Z">
+          <namecolumn datatype="string" datasize="8190">name</namecolumn>
+          <keycolumn datatype="string" datasize="8190">name</keycolumn>
+          <table catalog="dwexa" schema="public">location</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Gender Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:47:54.9735939Z">
+      <hierarchy name="gender" visible="true" lastmodified="2026-11-17T17:47:03.3606694Z">
+        <table catalog="dwexa" schema="public">member</table>
+        <level name="gender" order="name" type="regular" lastmodified="2026-11-17T17:47:03.3606631Z">
+          <namecolumn datatype="string" datasize="255">gender</namecolumn>
+          <keycolumn datatype="string" datasize="255">gender</keycolumn>
+          <table catalog="dwexa" schema="public">member</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Signup Hierarchy" visible="true" type="regular" lastmodified="2026-11-17T17:48:14.5909394Z">
+      <hierarchy name="signup_year" visible="true" lastmodified="2026-11-17T17:48:00.1117638Z">
+        <table catalog="dwexa" schema="public">member</table>
+        <level name="signup_year" order="name" type="regular" lastmodified="2026-11-17T17:48:00.1117574Z">
+          <namecolumn datatype="integer" datasize="0">signup_year</namecolumn>
+          <keycolumn datatype="integer" datasize="0">signup_year</keycolumn>
+          <table catalog="dwexa" schema="public">member</table>
+        </level>
+      </hierarchy>
+    </dimension>
+  </shareddimensions>
+  <cubes>
+    <cube name="Sales" factcatalog="dwexa" factschema="public" fact="sale" lastmodified="2026-11-17T18:16:48.4692707Z" visible="true">
+      <dimension shared="true" name="Date Hierarchy" />
+      <dimension shared="true" name="Time Hierarchy" />
+      <dimension shared="true" name="Product Hierarchy" />
+      <dimension shared="true" name="Location Hierarchy" />
+      <dimension shared="true" name="Gender Hierarchy" />
+      <dimension shared="true" name="Signup Hierarchy" />
+      <measure name="total_price" visible="true" lastmodified="2026-11-17T18:07:14.9503441Z" format="standard" aggregate="sum" datatype="float" datasize="0">total_price</measure>
+    </cube>
+  </cubes>
+</analysisDatabase>
