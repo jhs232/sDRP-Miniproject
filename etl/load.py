@@ -72,7 +72,7 @@ def load_sale_fact(connection, sale_data):
             "location_id",
             "item_version_id",
         ],
-        measures=["total_price"],
+        measures=["total_price", "quantity"],
         batchsize=50000,
         targetconnection=connection,
     )
@@ -86,7 +86,8 @@ def load_sale_fact(connection, sale_data):
             "time_id": row["time_id"],
             "location_id": row["room_id"],
             "item_version_id": row["item_version_id"],
-            "total_price": row["price"]
+            "total_price": row["total_price"],
+            "quantity": row["quantity"],
         })
 
     sale_fact.endload()

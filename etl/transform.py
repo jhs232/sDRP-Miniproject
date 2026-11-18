@@ -335,6 +335,7 @@ def transform_sale(data):
     )
     filtered_data = filtered_data.loc[valid_version].copy()
     filtered_data["price"] = filtered_data["price"] / 100
+    filtered_data["quantity"] = 1
     timestamps = filtered_data["_sale_timestamp"].map(
         lambda timestamp: timestamp.tz_convert(target_timezone)
     )
@@ -366,8 +367,8 @@ def transform_sale(data):
             ["member_id", "room_id", "item_version_id", "date_id", "time_id"],
             as_index=False,
             sort=False,
-        )["price"]
-        .sum()
+        )
+        .agg(total_price=("price", "sum"), quantity=("quantity", "sum"))
     )
 
     return grouped_data

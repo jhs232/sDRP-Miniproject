@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS sale (
     location_id INTEGER REFERENCES location(place_id),
     item_version_id INTEGER REFERENCES product(item_version_id),
     total_price NUMERIC(10, 2) NOT NULL,
-
+    quantity INTEGER NOT NULL,
+    CHECK (quantity > 0),
     PRIMARY KEY (member_id, date_id, time_id, location_id, item_version_id)
 );
