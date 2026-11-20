@@ -1,0 +1,268 @@
+﻿<analysisDatabase version="2" name="" color="#FFD3D3D3" locked="false" standard="false">
+  <designertabs />
+  <tablerelations>
+    <table catalog="fklub_bi" schema="public" name="location">
+      <bounds tab="Global" collapsed="false" x="1001" y="349" width="150" height="200" />
+    </table>
+    <table catalog="fklub_bi" schema="public" name="member">
+      <bounds tab="Global" collapsed="false" x="357" y="19" width="150" height="200" />
+    </table>
+    <table catalog="fklub_bi" schema="public" name="product">
+      <bounds tab="Global" collapsed="false" x="355" y="355" width="150" height="395" />
+    </table>
+    <table catalog="fklub_bi" schema="public" name="sale">
+      <bounds tab="Global" collapsed="false" x="737" y="106" width="150" height="200" />
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="member" lastmodified="2026-11-17T17:29:57.8928197Z">
+        <joincolumn master="member_id" detail="member_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="time" lastmodified="2026-11-17T17:30:04.5363345Z">
+        <joincolumn master="time_id" detail="time_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="location" lastmodified="2026-11-17T17:30:09.377042Z">
+        <joincolumn master="location_id" detail="place_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="product" lastmodified="2026-11-17T17:30:13.9603136Z">
+        <joincolumn master="item_version_id" detail="item_version_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="date_olap" lastmodified="2026-11-20T06:13:35.2317612Z">
+        <joincolumn master="date_id" detail="date_id" />
+      </join>
+    </table>
+    <table catalog="fklub_bi" schema="public" name="time">
+      <bounds tab="Global" collapsed="false" x="733" y="435" width="150" height="200" />
+    </table>
+    <table catalog="fklub_bi" schema="public" name="date_olap">
+      <bounds tab="Global" collapsed="false" x="967" y="573" width="150" height="200" />
+    </table>
+    <table catalog="fklub_bi" schema="public" name="sale_tenure">
+      <bounds tab="Global" collapsed="false" x="104" y="128" width="150" height="235" />
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="date_olap" lastmodified="2026-11-20T21:26:01.9354617Z">
+        <joincolumn master="date_id" detail="date_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="time" lastmodified="2026-11-20T21:27:38.6605203Z">
+        <joincolumn master="time_id" detail="time_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="member" lastmodified="2026-11-20T21:27:45.814236Z">
+        <joincolumn master="member_id" detail="member_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="product" lastmodified="2026-11-20T21:27:54.2664297Z">
+        <joincolumn master="item_version_id" detail="item_version_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="location" lastmodified="2026-11-20T21:28:00.6912Z">
+        <joincolumn master="location_id" detail="place_id" />
+      </join>
+      <join detailcatalog="fklub_bi" detailschema="public" detailtable="tenure_year_dim" lastmodified="2026-11-20T21:32:27.1026117Z">
+        <joincolumn master="tenure_years" detail="tenure_years" />
+      </join>
+    </table>
+    <table catalog="fklub_bi" schema="public" name="tenure_year_dim">
+      <bounds tab="Global" collapsed="false" x="127" y="543" width="150" height="200" />
+    </table>
+  </tablerelations>
+  <shareddimensions>
+    <dimension name="Time of Day" visible="true" type="regular" lastmodified="2026-11-20T06:34:00.0157434Z">
+      <hierarchy name="Clock Time" visible="true" lastmodified="2026-11-20T06:30:20.3397485Z">
+        <table catalog="fklub_bi" schema="public">time</table>
+        <level name="Hour" order="name" type="regular" lastmodified="2026-11-20T06:30:50.090234Z">
+          <namecolumn datatype="integer" datasize="0">hour</namecolumn>
+          <keycolumn datatype="integer" datasize="0">hour</keycolumn>
+          <table catalog="fklub_bi" schema="public">time</table>
+        </level>
+        <level name="Minute" order="name" type="regular" lastmodified="2026-11-20T06:31:30.6602072Z">
+          <namecolumn datatype="integer" datasize="0">minute</namecolumn>
+          <keycolumn datatype="integer" datasize="0">time_id</keycolumn>
+          <table catalog="fklub_bi" schema="public">time</table>
+          <memberproperty name="On Break">on_break</memberproperty>
+          <memberproperty name="Schedule Slot">schedule_slot</memberproperty>
+        </level>
+      </hierarchy>
+      <hierarchy name="Break Status" visible="true" lastmodified="2026-11-20T06:32:34.5279446Z">
+        <description>Compare sales during and outside scheduled university breaks.</description>
+        <table catalog="fklub_bi" schema="public">time</table>
+        <level name="On Break" order="name" type="regular" lastmodified="2026-11-20T06:32:51.6270838Z">
+          <namecolumn datatype="string" datasize="5">on_break</namecolumn>
+          <keycolumn datatype="string" datasize="5">on_break</keycolumn>
+          <table catalog="fklub_bi" schema="public">time</table>
+        </level>
+      </hierarchy>
+      <hierarchy name="Schedule Slot" visible="true" lastmodified="2026-11-20T06:34:38.5503683Z">
+        <description>Analyze sales across AAU  teaching schedule slots.</description>
+        <table catalog="fklub_bi" schema="public">time</table>
+        <level name="Schedule Slot" order="key" type="regular" lastmodified="2026-11-20T06:35:44.4432384Z">
+          <namecolumn datatype="integer" datasize="0">schedule_slot</namecolumn>
+          <keycolumn datatype="integer" datasize="0">schedule_slot</keycolumn>
+          <table catalog="fklub_bi" schema="public">time</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Product" visible="true" type="regular" lastmodified="2026-11-20T06:46:05.2949277Z">
+      <hierarchy name="Product Classification" visible="true" lastmodified="2026-11-20T06:40:25.9141953Z">
+        <description>Browse products by category and type.</description>
+        <table catalog="fklub_bi" schema="public">product</table>
+        <level name="Category" order="name" type="regular" lastmodified="2026-11-20T06:40:48.4412277Z">
+          <namecolumn datatype="string" datasize="8190">category</namecolumn>
+          <keycolumn datatype="string" datasize="8190">category</keycolumn>
+          <table catalog="fklub_bi" schema="public">product</table>
+          <memberproperty name="Consumable">consumable</memberproperty>
+        </level>
+        <level name="Type" order="name" type="regular" lastmodified="2026-11-20T06:46:01.6281387Z">
+          <namecolumn datatype="string" datasize="8190">type</namecolumn>
+          <keycolumn datatype="string" datasize="8190">type</keycolumn>
+          <table catalog="fklub_bi" schema="public">product</table>
+        </level>
+        <level name="Product" order="name" type="regular" lastmodified="2026-11-20T06:44:25.468144Z">
+          <namecolumn datatype="string" datasize="8190">name</namecolumn>
+          <keycolumn datatype="integer" datasize="0">product_id</keycolumn>
+          <table catalog="fklub_bi" schema="public">product</table>
+          <memberproperty name="Brand">brand</memberproperty>
+          <memberproperty name="Volume">volume</memberproperty>
+          <memberproperty name="Contains Alcohol">contains_alcohol</memberproperty>
+        </level>
+      </hierarchy>
+      <hierarchy name="Brand" visible="true" lastmodified="2026-11-20T06:43:41.7697982Z">
+        <description>Compare sales across product brands.</description>
+        <table catalog="fklub_bi" schema="public">product</table>
+        <level name="Brand" order="name" type="regular" lastmodified="2026-11-20T06:43:51.4932604Z">
+          <namecolumn datatype="string" datasize="8190">brand</namecolumn>
+          <keycolumn datatype="string" datasize="8190">brand</keycolumn>
+          <table catalog="fklub_bi" schema="public">product</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Location" visible="true" type="regular" lastmodified="2026-11-20T06:49:35.2242703Z">
+      <hierarchy name="Sales Location" visible="true" lastmodified="2026-11-20T06:48:45.4750373Z">
+        <description>Analyze sales by location or event.</description>
+        <table catalog="fklub_bi" schema="public">location</table>
+        <level name="Place" order="name" type="regular" lastmodified="2026-11-20T06:49:03.2774954Z">
+          <namecolumn datatype="string" datasize="8190">name</namecolumn>
+          <keycolumn datatype="integer" datasize="0">place_id</keycolumn>
+          <table catalog="fklub_bi" schema="public">location</table>
+          <memberproperty name="Is Event">is_event</memberproperty>
+        </level>
+      </hierarchy>
+      <hierarchy name="Event Status" visible="true" lastmodified="2026-11-20T06:49:51.8790228Z">
+        <description>Compare event sales with sales at ordinary locations.</description>
+        <table catalog="fklub_bi" schema="public">location</table>
+        <level name="Is Event" order="name" type="regular" lastmodified="2026-11-20T06:50:03.1955169Z">
+          <namecolumn datatype="string" datasize="5">is_event</namecolumn>
+          <keycolumn datatype="string" datasize="5">is_event</keycolumn>
+          <table catalog="fklub_bi" schema="public">location</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Date" visible="true" type="regular" lastmodified="2026-11-20T06:25:45.6114702Z">
+      <hierarchy name="Calendar" visible="true" lastmodified="2026-11-20T06:15:39.536375Z">
+        <table catalog="fklub_bi" schema="public">date_olap</table>
+        <level name="Year" order="name" type="regular" lastmodified="2026-11-20T06:16:39.2467672Z">
+          <namecolumn datatype="integer" datasize="0">year</namecolumn>
+          <keycolumn datatype="integer" datasize="0">year</keycolumn>
+          <table catalog="fklub_bi" schema="public">date_olap</table>
+        </level>
+        <level name="Month" order="key" type="regular" lastmodified="2026-11-20T06:25:42.0317784Z">
+          <namecolumn datatype="string" datasize="8190">month</namecolumn>
+          <keycolumn datatype="integer" datasize="0">year_month_key</keycolumn>
+          <table catalog="fklub_bi" schema="public">date_olap</table>
+          <memberproperty name="Period">period</memberproperty>
+        </level>
+        <level name="Day" order="name" type="regular" lastmodified="2026-11-20T06:19:02.1310866Z">
+          <namecolumn datatype="integer" datasize="0">day</namecolumn>
+          <keycolumn datatype="integer" datasize="0">date_id</keycolumn>
+          <table catalog="fklub_bi" schema="public">date_olap</table>
+          <memberproperty name="Working Day">working_day</memberproperty>
+        </level>
+      </hierarchy>
+      <hierarchy name="Academic Period" visible="true" lastmodified="2026-11-20T06:21:29.6430778Z">
+        <table catalog="fklub_bi" schema="public">date_olap</table>
+        <level name="Period" order="name" type="regular" lastmodified="2026-11-20T06:21:48.1309589Z">
+          <namecolumn datatype="string" datasize="255">period</namecolumn>
+          <keycolumn datatype="string" datasize="255">period</keycolumn>
+          <table catalog="fklub_bi" schema="public">date_olap</table>
+        </level>
+      </hierarchy>
+      <hierarchy name="Working Day" visible="true" lastmodified="2026-11-20T06:23:44.3530827Z">
+        <description>Compare sales on working and non-working days.</description>
+        <table catalog="fklub_bi" schema="public">date_olap</table>
+        <level name="Working Day" order="name" type="regular" lastmodified="2026-11-20T06:24:04.0011986Z">
+          <namecolumn datatype="string" datasize="5">working_day</namecolumn>
+          <keycolumn datatype="string" datasize="5">working_day</keycolumn>
+          <table catalog="fklub_bi" schema="public">date_olap</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Member" visible="true" type="regular" lastmodified="2026-11-20T06:54:45.1311771Z">
+      <hierarchy name="Gender" visible="true" lastmodified="2026-11-20T06:55:45.2364209Z">
+        <table catalog="fklub_bi" schema="public">member</table>
+        <level name="Gender" order="name" type="regular" lastmodified="2026-11-20T06:55:38.1396547Z">
+          <namecolumn datatype="string" datasize="255">gender</namecolumn>
+          <keycolumn datatype="string" datasize="255">gender</keycolumn>
+          <table catalog="fklub_bi" schema="public">member</table>
+        </level>
+      </hierarchy>
+      <hierarchy name="Signup Year" visible="true" lastmodified="2026-11-20T06:55:33.6682238Z">
+        <table catalog="fklub_bi" schema="public">member</table>
+        <level name="Year" order="key" type="regular" lastmodified="2026-11-20T06:55:54.3718014Z">
+          <namecolumn datatype="integer" datasize="0">signup_year</namecolumn>
+          <keycolumn datatype="integer" datasize="0">signup_year</keycolumn>
+          <table catalog="fklub_bi" schema="public">member</table>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension name="Membership Tenure" visible="true" type="regular" lastmodified="2026-11-20T21:35:49.0495879Z">
+      <hierarchy name="Years Since Signup" visible="true" lastmodified="2026-11-20T21:35:59.9917933Z">
+        <table catalog="fklub_bi" schema="public">tenure_year_dim</table>
+        <level name="Tenure Year" order="key" type="regular" lastmodified="2026-11-20T21:36:15.1460729Z">
+          <namecolumn datatype="integer" datasize="0">tenure_years</namecolumn>
+          <keycolumn datatype="integer" datasize="0">tenure_years</keycolumn>
+          <table catalog="fklub_bi" schema="public">tenure_year_dim</table>
+        </level>
+      </hierarchy>
+    </dimension>
+  </shareddimensions>
+  <cubes>
+    <cube name="F-Klub Sales" factcatalog="fklub_bi" factschema="public" fact="sale" lastmodified="2026-11-20T06:53:15.3159395Z" visible="true">
+      <dimension shared="true" name="Time of Day" />
+      <dimension shared="true" name="Product" />
+      <dimension shared="true" name="Location" />
+      <dimension shared="true" name="Date" />
+      <dimension shared="true" name="Member" />
+      <measure name="Revenue (DKK)" visible="true" lastmodified="2026-11-20T06:01:57.6290342Z" format="#,##0.00 &quot;DKK&quot;" aggregate="sum" datatype="float" datasize="0">
+        <description>Total sales revenue in DKK.</description>total_price</measure>
+      <measure name="Quantity Sold" visible="true" lastmodified="2026-11-20T06:00:59.6705159Z" format="#,0" aggregate="sum" datatype="integer" datasize="0">
+        <description>Total number of producs sold.</description>quantity</measure>
+    </cube>
+    <cube name="Calendar Days" factcatalog="fklub_bi" factschema="public" fact="date_olap" lastmodified="2026-11-20T07:40:00.9897709Z" visible="true">
+      <dimension shared="true" name="Date" />
+      <measure name="Calendar Days" visible="true" lastmodified="2026-11-20T07:35:22.1000046Z" format="#,0" aggregate="distinctcount" measuredatatype="integer" datatype="integer" datasize="0">
+        <description>Number of calendar days in the selected period.</description>date_id</measure>
+    </cube>
+    <cube name="F-Klub Member Tenure Sales" factcatalog="fklub_bi" factschema="public" fact="sale_tenure" lastmodified="2026-11-20T21:34:11.2377623Z" visible="true">
+      <dimension shared="true" name="Time of Day" />
+      <dimension shared="true" name="Product" />
+      <dimension shared="true" name="Location" />
+      <dimension shared="true" name="Date" />
+      <dimension shared="true" name="Member" />
+      <dimension shared="true" name="Membership Tenure" />
+      <measure name="Quantity Sold" visible="true" lastmodified="2026-11-20T21:34:20.6834065Z" format="#,0" aggregate="sum" datatype="integer" datasize="0">quantity</measure>
+      <measure name="Revenue (DKK)" visible="true" lastmodified="2026-11-20T21:34:30.1245957Z" format="standard" aggregate="sum" datatype="float" datasize="0">total_price</measure>
+      <measure name="Purchasing Members" visible="true" lastmodified="2026-11-20T21:34:44.2331304Z" format="#,0" aggregate="distinctcount" datatype="integer" datasize="0">member_id</measure>
+    </cube>
+    <cube name="F-Klub Registered Members" factcatalog="fklub_bi" factschema="public" fact="member" lastmodified="2026-11-20T22:10:21.050354Z" visible="true">
+      <dimension shared="true" name="Member" />
+      <measure name="Registered Members" visible="true" lastmodified="2026-11-20T22:10:36.1743142Z" format="#,0" aggregate="distinctcount" datatype="integer" datasize="0">member_id</measure>
+    </cube>
+    <cube virtual="true" name="F-Klub Sales Analysis" ignoreunrelateddimensions="true" lastmodified="2026-11-20T07:50:23.5736349Z">
+      <cube name="F-Klub Sales" ignoreunrelatedcriteria="true">
+        <measure name="Revenue (DKK)" />
+        <measure name="Quantity Sold" />
+      </cube>
+      <cube name="Calendar Days" ignoreunrelatedcriteria="true">
+        <measure name="Calendar Days" />
+      </cube>
+      <dimension name="Time of Day" />
+      <dimension name="Product" />
+      <dimension name="Location" />
+      <dimension name="Date" />
+      <dimension name="Member" />
+    </cube>
+  </cubes>
+</analysisDatabase>
