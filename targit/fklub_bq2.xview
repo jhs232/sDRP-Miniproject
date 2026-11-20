@@ -1,0 +1,1488 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<targitView>
+	<version suite="26.10.5006" xview="9" dataobj="21" criteria="3"/>
+	<onDbInaccessible autoremove="false"/>
+	<defaultcube>
+		<metadata database="FKlub" cube="F-Klub Sales"/>
+	</defaultcube>
+	<globalCriteria immediaterefresh="true">{"Ver":3,"Criteria":[]}</globalCriteria>
+	<groupCriteria/>
+	<storedcriteria/>
+	<criteriabar visible="false" showdateorigin="false" autofilter="false" allowhidecriteriabar="false"/>
+	<modified user="WIN-HRSHUSE9SRL\jhs232"/>
+	<thumbnail>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</thumbnail>
+	<aisummary>{"Enabled":false,"LayoutSpecific":false,"IncludeNewObjects":false,"LayoutConfigs":[],"Prompt":""}</aisummary>
+	<data>
+		<object typeName="Visualization" chartclass="" ID="{EA45A4A3-80CC-4663-B65F-145EFB727D3E}" name="Chart1">
+			<version suite="26.10.5006" dataobj="21" criteria="3"/>
+			<metadata database="FKlub" cube="F-Klub Sales"/>
+			<onDbInaccessible isrequired="false" autoremove="false"/>
+			<fieldUsage openwithoutdata="false" onlynonempty="default">
+				<x>
+					<metadata dimension="Member" hierarchy="Gender"/>
+					<dynamiccaptionformat level="Gender">
+						<total>{"Text":"{cellvalue}"}</total>
+					</dynamiccaptionformat>
+				</x>
+				<y>
+					<metadata dimension="Product" hierarchy="Product Classification" level="Category"/>
+				</y>
+				<expand>{"X":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Member","Hierarchy":"Gender"},"CollapseMembers":null,"ExpandMembers":null}],"Y":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Product","Hierarchy":"Product Classification","Level":"Category"},"CollapseMembers":[],"ExpandMembers":[]}]}</expand>
+				<data>
+					<metadata measure="Quantity Sold"/>
+				</data>
+				<ifempty>{"HideObject":false,"UseCustomMessage":false,"Message":{"Text":""},"Font":{"FontFamily":"Segoe UI","FontSize":11,"Bold":"True","Color":"#808080"}}</ifempty>
+			</fieldUsage>
+			<gridOptions>
+				<vertData>false</vertData>
+				<measureCalculations>
+					<formula id="CalcMeasA" pintostart="false">
+						<title>{"Text":"Share of Purchases"}</title>
+						<expression>
+if count(0, 0, @"Quantity Sold") = 0
+or sum(0, all, @"Quantity Sold") = 0
+then 0
+else sum(0, 0, @"Quantity Sold") / sum(0, all, @"Quantity Sold")
+</expression>
+						<color>FF74CFD7</color>
+						<format astime="false" abbreviatebmk="false">Percent</format>
+						<dynamiclabelformat>{"Text":" "}</dynamiclabelformat>
+						<label visible="true" measure="false" dimension="false" percent="false" value="false" total="false"/>
+					</formula>
+				</measureCalculations>
+				<sort collate="true"/>
+				<hierarchyDisplay>standard</hierarchyDisplay>
+				<wordwrap global="true"/>
+				<autodetecturl enabled="true"/>
+				<totals grandtotals="true" subtotals="true" highlightX="true" highlightY="true"/>
+				<measureproperties idx="0">
+					<hidden>true</hidden>
+					<label visible="true" measure="true" dimension="true" percent="false" value="true" total="false"/>
+				</measureproperties>
+				<gridcolors id="{656E94A8-F142-4F05-9030-0BC0242E5EDD}" outside="FFFFFFFF" usedefault="true">
+					<collabel bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+						<border bottom="FFA1A8AD"/>
+						<font name="Segoe UI" size="10" bold="true"/>
+						<alt bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+							<border bottom="FFA1A8AD"/>
+							<font name="Segoe UI" size="10" bold="true"/>
+						</alt>
+					</collabel>
+					<rowlabel bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF00858F"/>
+					</rowlabel>
+					<cell bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF0098EC"/>
+					</cell>
+					<comment bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFE0E0E0" text="FF000000" url="FF0098EC"/>
+					</comment>
+					<selected bg="FF2EB7C2" text="FFFFFFFF" url="FF000000">
+						<alt bg="FF2EB7C2" text="FFFFFFFF" url="FF000000"/>
+					</selected>
+					<hidden bg="FFCBE4ED" text="FF000000" url="FF7BD0FF">
+						<alt bg="FF9ACBDD" text="FF000000" url="FF7BD0FF"/>
+					</hidden>
+				</gridcolors>
+				<xorder totals="before" originalorder="false"/>
+				<yorder totals="before" originalorder="false"/>
+			</gridOptions>
+			<visualization>
+				<config>{
+	"template_id": "MultiSeries",
+	"visualization_id": "40219e5b-7645-4cca-977f-fbd1a5ad0f39",
+	"content": {
+		"id": "Chart1",
+		"enabled": true,
+		"source_x": "[1,-1]",
+		"source_y": "[1,-1]",
+		"title": "Product Preferences by Gender",
+		"title_origin": "current",
+		"title_font": { "Name": "Segoe UI", "Size": 12, "Color": "#FF505050" },
+		"title_alignment": "TopLeft",
+		"title_background_color": "#00ffffff",
+		"title_borderstyle": {
+			"BackgroundColor": "#00FFFFFF",
+			"BorderRadius": 0,
+			"BorderRadiusTopLeft": null,
+			"BorderRadiusTopRight": null,
+			"BorderRadiusBottomLeft": null,
+			"BorderRadiusBottomRight": null,
+			"BorderWidth": 0,
+			"BorderWidthTop": null,
+			"BorderWidthBottom": null,
+			"BorderWidthLeft": null,
+			"BorderWidthRight": null,
+			"BorderColor": "#FF606060",
+			"BorderColorTop": null,
+			"BorderColorBottom": null,
+			"BorderColorLeft": null,
+			"BorderColorRight": null,
+			"Padding": 0,
+			"PaddingTop": null,
+			"PaddingBottom": null,
+			"PaddingLeft": null,
+			"PaddingRight": null
+		},
+		"explanation": "",
+		"explanation_origin": "current",
+		"per_item": {
+			"Measures": {
+				"enabled": true,
+				"defaults": {
+					"Value#": {
+						"value_template_id": "#/chart/value_templates/Value",
+						"value_type": "number",
+						"enabled": true,
+						"text": "{PercentOfColumn} {ColMember}",
+						"text_parameters": {
+							"PercentOfColumn": {
+								"number": "current",
+								"numberformat": "Percent",
+								"expression": "current() / Column.Sum"
+							},
+							"ColMember": {
+								"member": "current",
+								"source": "column",
+								"value": "member",
+								"levels": "all"
+							}
+						},
+						"text_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"text_alignment": "MiddleCenter",
+						"hint": "{MeasureValue}",
+						"hint_parameters": {
+							"MeasureValue": {
+								"number": "current"
+							}
+						},
+						"hint_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"axis_id": "Axis1",
+						"include_stroke_color_in_legend": true,
+						"include_fill_color_in_legend": true,
+						"row_stroke_color": "automatic",
+						"row_fill_color": "automatic",
+						"column_stroke_color": "automatic",
+						"column_fill_color": "automatic",
+						"drill_target": "cell",
+						"config": {
+							"Custom": {
+								"group": {
+									"ColumnOptions": {
+										"group": {
+											"LabelPlacement": { "enum": "Outside" },
+											"LabelRotation": { "enum": "Auto" }
+										}
+									},
+									"SeriesOptions": {
+										"group": {
+											"ChartType": { "enum": "Default" },
+											"LineStyle": { "linestyle": { "Thickness": 2, "Style": "solid", "Color": "#FF808080" } },
+											"MarkerSize": { "enum": "Medium" },
+											"MarkerType": { "enum": "Default" }
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"values": {
+					"Value1": {
+						"defaults": "Value#",
+						"enabled": true,
+						"meas": "m1"
+					},
+					"Value2": {
+						"defaults": "Value#",
+						"enabled": true,
+						"meas": "m2"
+					}
+				}
+			}
+		},
+		"axes": {
+			"Axis1": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "0",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "Share of Each Gender's Purchases (%)",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			},
+			"Axis2": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"member_axes": {
+			"Axis1": {
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"MemberAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"HiearchyLabelRotation": { "enum": "Auto" },
+									"HiearchyTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050", "Alignment": "TopLeft" } },
+									"LabelFormat": { "enum": "Hierarchical" },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"legends": {
+			"Legend": {
+				"visibility": "Automatic",
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "TopCenter",
+				"position": "MiddleRight",
+				"items_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"items_alignment": "MiddleLeft",
+				"background_color": "#00ffffff"
+			}
+		},
+		"config": {
+			"Custom": {
+				"group": {
+					"ChartOptions": {
+						"group": {
+							"AreaStacking": { "enum": "BackToBack" },
+							"ColumnStacking": { "enum": "SideBySide" },
+							"ColumnWidth": { "enum": "Medium" },
+							"IsComparisonLineEnabled": { "bool": true },
+							"PlotAreaBackground": { "color": "" }
+						}
+					},
+					"LegendOptions": {
+						"group": {
+							"ReverseLegend": { "bool": false }
+						}
+					}
+				}
+			}
+		}
+	},
+	"config": {
+		"Style": {
+			"group": {
+				"BackgroundColor": { "color": "#00FFFFFF" },
+				"BackgroundImage": { "image": { "Id": "", "Stretch": "None", "Alignment": "MiddleCenter" } },
+				"DrillColor": { "color": "#00FFFFFF" },
+				"UseDrillColor": { "bool": false }
+			}
+		}
+	}
+}</config>
+			</visualization>
+			<criteriabehavior value="respondtoallchanges"/>
+			<ignoreDimensionCriteria>
+				<metadata database="FKlub" cube="F-Klub Sales" dimension="Member"/>
+				<metadata database="FKlub" cube="F-Klub Sales" dimension="Product"/>
+			</ignoreDimensionCriteria>
+			<toolbarsettings>{"DrillOutState":"VisibleOnMouseEnter","ExpandCollapseLevelState":"VisibleOnMouseEnter","MaximizeRestoreState":"VisibleOnMouseEnter","ShowExplanationState":"VisibleOnMouseEnter","ShowDataState":"VisibleOnMouseEnter"}</toolbarsettings>
+		</object>
+		<object typeName="Visualization" chartclass="" ID="{84132185-B376-45E7-8B7D-D79DEC886985}" name="Chart3">
+			<version suite="26.10.5006" dataobj="21" criteria="3"/>
+			<metadata database="FKlub" cube="F-Klub Sales"/>
+			<onDbInaccessible isrequired="false" autoremove="false"/>
+			<fieldUsage openwithoutdata="false" onlynonempty="default">
+				<y>
+					<metadata dimension="Date" hierarchy="Calendar" level="Year"/>
+				</y>
+				<expand>{"X":[],"Y":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Date","Hierarchy":"Calendar","Level":"Year"},"CollapseMembers":[],"ExpandMembers":[]}]}</expand>
+				<data>
+					<metadata measure="Quantity Sold"/>
+				</data>
+				<ifempty>{"HideObject":false,"UseCustomMessage":false,"Message":{"Text":""},"Font":{"FontFamily":"Segoe UI","FontSize":11,"Bold":"True","Color":"#808080"}}</ifempty>
+			</fieldUsage>
+			<gridOptions>
+				<sort collate="true"/>
+				<hierarchyDisplay>standard</hierarchyDisplay>
+				<wordwrap global="true"/>
+				<autodetecturl enabled="true"/>
+				<totals grandtotals="true" subtotals="true" highlightX="true" highlightY="true"/>
+				<measureproperties idx="0">
+					<label visible="true" measure="true" dimension="true" percent="false" value="true" total="false"/>
+				</measureproperties>
+				<gridcolors id="{656E94A8-F142-4F05-9030-0BC0242E5EDD}" outside="FFFFFFFF" usedefault="true">
+					<collabel bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+						<border bottom="FFA1A8AD"/>
+						<font name="Segoe UI" size="10" bold="true"/>
+						<alt bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+							<border bottom="FFA1A8AD"/>
+							<font name="Segoe UI" size="10" bold="true"/>
+						</alt>
+					</collabel>
+					<rowlabel bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF00858F"/>
+					</rowlabel>
+					<cell bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF0098EC"/>
+					</cell>
+					<comment bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFE0E0E0" text="FF000000" url="FF0098EC"/>
+					</comment>
+					<selected bg="FF2EB7C2" text="FFFFFFFF" url="FF000000">
+						<alt bg="FF2EB7C2" text="FFFFFFFF" url="FF000000"/>
+					</selected>
+					<hidden bg="FFCBE4ED" text="FF000000" url="FF7BD0FF">
+						<alt bg="FF9ACBDD" text="FF000000" url="FF7BD0FF"/>
+					</hidden>
+				</gridcolors>
+				<xorder totals="before" originalorder="false"/>
+				<yorder totals="before" originalorder="false"/>
+			</gridOptions>
+			<visualization>
+				<config>{
+	"template_id": "MultiSeries",
+	"visualization_id": "330f98d8-37a3-4d31-af76-9463a793df96",
+	"content": {
+		"id": "Chart1",
+		"enabled": true,
+		"source_x": "[1,-1]",
+		"source_y": "[1,-1]",
+		"title": "Select timerange",
+		"title_origin": "current",
+		"title_font": { "Name": "Segoe UI", "Size": 12, "Color": "#FF505050" },
+		"title_alignment": "TopLeft",
+		"title_background_color": "#00ffffff",
+		"title_borderstyle": {
+			"BackgroundColor": "#00FFFFFF",
+			"BorderRadius": 0,
+			"BorderRadiusTopLeft": null,
+			"BorderRadiusTopRight": null,
+			"BorderRadiusBottomLeft": null,
+			"BorderRadiusBottomRight": null,
+			"BorderWidth": 0,
+			"BorderWidthTop": null,
+			"BorderWidthBottom": null,
+			"BorderWidthLeft": null,
+			"BorderWidthRight": null,
+			"BorderColor": "#FF606060",
+			"BorderColorTop": null,
+			"BorderColorBottom": null,
+			"BorderColorLeft": null,
+			"BorderColorRight": null,
+			"Padding": 0,
+			"PaddingTop": null,
+			"PaddingBottom": null,
+			"PaddingLeft": null,
+			"PaddingRight": null
+		},
+		"explanation": "",
+		"explanation_origin": "current",
+		"per_item": {
+			"Measures": {
+				"enabled": true,
+				"defaults": {
+					"Value#": {
+						"value_template_id": "#/chart/value_templates/Value",
+						"value_type": "number",
+						"enabled": true,
+						"text": "",
+						"text_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"text_alignment": "MiddleCenter",
+						"hint": "",
+						"hint_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"axis_id": "Axis1",
+						"include_stroke_color_in_legend": false,
+						"include_fill_color_in_legend": false,
+						"row_stroke_color": "automatic",
+						"row_fill_color": "automatic",
+						"column_stroke_color": "automatic",
+						"column_fill_color": "automatic",
+						"drill_target": "cell"
+					}
+				},
+				"values": {
+					"Value1": {
+						"defaults": "Value#",
+						"enabled": true,
+						"source_x": "#-1"
+					}
+				}
+			}
+		},
+		"axes": {
+			"Axis1": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				}
+			}
+		},
+		"member_axes": {
+			"Axis1": {
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				}
+			}
+		},
+		"legends": {
+			"Legend": {
+				"visibility": "Automatic",
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "TopCenter",
+				"position": "MiddleRight",
+				"items_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"items_alignment": "MiddleLeft",
+				"background_color": "#00ffffff"
+			}
+		},
+		"config": {
+			"Custom": {
+				"group": {
+					"SlicerOptions": {
+						"group": {
+							"CloseOnSelection": { "bool": false },
+							"MemberCount": { "integer": 25 },
+							"Orientation": { "enum": "Horizontal" },
+							"SelectedTabColor": { "color": "#FF505050" },
+							"SelectionBorderStyle": { "borderstyle": { "BackgroundColor": "#FF2EB7C2", "BorderRadius": 4, "BorderRadiusTopLeft": null, "BorderRadiusTopRight": null, "BorderRadiusBottomLeft": null, "BorderRadiusBottomRight": null, "BorderWidth": 0, "BorderWidthTop": null, "BorderWidthBottom": null, "BorderWidthLeft": null, "BorderWidthRight": null, "BorderColor": "#FFFFFFFF", "BorderColorTop": null, "BorderColorBottom": null, "BorderColorLeft": null, "BorderColorRight": null, "Padding": 4, "PaddingTop": null, "PaddingBottom": null, "PaddingLeft": null, "PaddingRight": null } },
+							"SelectionColor": { "color": "#FF2EB7C2" },
+							"SelectionTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FFFFFFFF", "Alignment": "TopLeft" } },
+							"SelectionType": { "enum": "Multi" },
+							"ShowCheckbox": { "bool": true },
+							"ShowSearchHint": { "bool": true },
+							"ShowTimeTabs": { "bool": false },
+							"SlicerBorderStyle": { "borderstyle": { "BackgroundColor": "#FFF8F8F8", "BorderRadius": 4, "BorderRadiusTopLeft": null, "BorderRadiusTopRight": null, "BorderRadiusBottomLeft": null, "BorderRadiusBottomRight": null, "BorderWidth": 0, "BorderWidthTop": null, "BorderWidthBottom": null, "BorderWidthLeft": null, "BorderWidthRight": null, "BorderColor": "#FFFFFFFF", "BorderColorTop": null, "BorderColorBottom": null, "BorderColorLeft": null, "BorderColorRight": null, "Padding": 4, "PaddingTop": null, "PaddingBottom": null, "PaddingLeft": null, "PaddingRight": null } },
+							"SlicerTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050", "Alignment": "TopLeft" } },
+							"Spacing": { "integer": 2 },
+							"StylingFitToText": { "bool": false },
+							"ToggleSelection": { "bool": true },
+							"Type": { "enum": "Dropdown" },
+							"UseDynamicTime": { "bool": false }
+						}
+					}
+				}
+			}
+		}
+	},
+	"config": {
+		"Style": {
+			"group": {
+				"BackgroundColor": { "color": "#00FFFFFF" },
+				"BackgroundImage": { "image": { "Id": "", "Stretch": "None", "Alignment": "MiddleCenter" } },
+				"DrillColor": { "color": "#00FFFFFF" },
+				"UseDrillColor": { "bool": false }
+			}
+		}
+	}
+}</config>
+			</visualization>
+			<criteriabehavior value="asslicer"/>
+			<ignoreDimensionCriteria/>
+			<toolbarsettings>{"DrillOutState":"VisibleOnMouseEnter","ExpandCollapseLevelState":"VisibleOnMouseEnter","MaximizeRestoreState":"VisibleOnMouseEnter","ShowExplanationState":"VisibleOnMouseEnter","ShowDataState":"VisibleOnMouseEnter"}</toolbarsettings>
+		</object>
+		<object typeName="Visualization" chartclass="" ID="{F3FDF31F-EA0F-4ADA-A6A3-2A9F209CECCE}" name="Chart4">
+			<version suite="26.10.5006" dataobj="21" criteria="3"/>
+			<metadata database="FKlub" cube="F-Klub Sales"/>
+			<onDbInaccessible isrequired="false" autoremove="false"/>
+			<fieldUsage openwithoutdata="false" onlynonempty="default">
+				<y hideTotal="true">
+					<metadata dimension="Product" hierarchy="Product Classification" level="Product"/>
+					<hideLevel name="Category" labels="true" subtotals="true" values="true"/>
+					<hideLevel name="Type" labels="true" subtotals="true" values="true"/>
+				</y>
+				<expand>{"X":[],"Y":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Product","Hierarchy":"Product Classification","Level":"Product"},"CollapseMembers":[],"ExpandMembers":[]}]}</expand>
+				<data>
+					<metadata measure="Quantity Sold"/>
+				</data>
+				<ifempty>{"HideObject":false,"UseCustomMessage":false,"Message":{"Text":""},"Font":{"FontFamily":"Segoe UI","FontSize":11,"Bold":"True","Color":"#808080"}}</ifempty>
+			</fieldUsage>
+			<gridOptions>
+				<sort collate="false">{"Columns":[{"Key":"[total,m1]","Descending":true}]}</sort>
+				<hierarchyDisplay>standard</hierarchyDisplay>
+				<wordwrap global="true"/>
+				<autodetecturl enabled="true"/>
+				<topList>5</topList>
+				<topPct>false</topPct>
+				<totals grandtotals="true" subtotals="true" highlightX="true" highlightY="true"/>
+				<measureproperties idx="0">
+					<label visible="true" measure="true" dimension="true" percent="false" value="true" total="false"/>
+				</measureproperties>
+				<gridcolors id="{656E94A8-F142-4F05-9030-0BC0242E5EDD}" outside="FFFFFFFF" usedefault="true">
+					<collabel bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+						<border bottom="FFA1A8AD"/>
+						<font name="Segoe UI" size="10" bold="true"/>
+						<alt bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+							<border bottom="FFA1A8AD"/>
+							<font name="Segoe UI" size="10" bold="true"/>
+						</alt>
+					</collabel>
+					<rowlabel bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF00858F"/>
+					</rowlabel>
+					<cell bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF0098EC"/>
+					</cell>
+					<comment bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFE0E0E0" text="FF000000" url="FF0098EC"/>
+					</comment>
+					<selected bg="FF2EB7C2" text="FFFFFFFF" url="FF000000">
+						<alt bg="FF2EB7C2" text="FFFFFFFF" url="FF000000"/>
+					</selected>
+					<hidden bg="FFCBE4ED" text="FF000000" url="FF7BD0FF">
+						<alt bg="FF9ACBDD" text="FF000000" url="FF7BD0FF"/>
+					</hidden>
+				</gridcolors>
+				<xorder totals="before" originalorder="false"/>
+				<yorder totals="before" originalorder="false"/>
+			</gridOptions>
+			<visualization>
+				<config>{
+	"template_id": "MultiSeries",
+	"visualization_id": "40219e5b-7645-4cca-977f-fbd1a5ad0f39",
+	"content": {
+		"id": "Chart1",
+		"enabled": true,
+		"source_x": "[1,-1]",
+		"source_y": "[1,-1]",
+		"title": "Top 5 Products",
+		"title_origin": "current",
+		"title_font": { "Name": "Segoe UI", "Size": 12, "Color": "#FF505050" },
+		"title_alignment": "TopLeft",
+		"title_background_color": "#00ffffff",
+		"title_borderstyle": {
+			"BackgroundColor": "#00FFFFFF",
+			"BorderRadius": 0,
+			"BorderRadiusTopLeft": null,
+			"BorderRadiusTopRight": null,
+			"BorderRadiusBottomLeft": null,
+			"BorderRadiusBottomRight": null,
+			"BorderWidth": 0,
+			"BorderWidthTop": null,
+			"BorderWidthBottom": null,
+			"BorderWidthLeft": null,
+			"BorderWidthRight": null,
+			"BorderColor": "#FF606060",
+			"BorderColorTop": null,
+			"BorderColorBottom": null,
+			"BorderColorLeft": null,
+			"BorderColorRight": null,
+			"Padding": 0,
+			"PaddingTop": null,
+			"PaddingBottom": null,
+			"PaddingLeft": null,
+			"PaddingRight": null
+		},
+		"explanation": "",
+		"explanation_origin": "current",
+		"per_item": {
+			"Measures": {
+				"enabled": true,
+				"defaults": {
+					"Value#": {
+						"value_template_id": "#/chart/value_templates/Value",
+						"value_type": "number",
+						"enabled": true,
+						"text": "{MeasureValue}",
+						"text_parameters": {
+							"MeasureValue": {
+								"number": "current"
+							}
+						},
+						"text_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"text_alignment": "MiddleCenter",
+						"hint": "{MeasureValue}",
+						"hint_parameters": {
+							"MeasureValue": {
+								"number": "current"
+							}
+						},
+						"hint_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"axis_id": "Axis1",
+						"include_stroke_color_in_legend": true,
+						"include_fill_color_in_legend": true,
+						"row_stroke_color": "automatic",
+						"row_fill_color": "automatic",
+						"column_stroke_color": "automatic",
+						"column_fill_color": "automatic",
+						"drill_target": "cell",
+						"config": {
+							"Custom": {
+								"group": {
+									"ColumnOptions": {
+										"group": {
+											"LabelPlacement": { "enum": "Outside" },
+											"LabelRotation": { "enum": "Auto" }
+										}
+									},
+									"SeriesOptions": {
+										"group": {
+											"ChartType": { "enum": "Default" },
+											"LineStyle": { "linestyle": { "Thickness": 2, "Style": "solid", "Color": "#FF808080" } },
+											"MarkerSize": { "enum": "Medium" },
+											"MarkerType": { "enum": "Default" }
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"values": {
+					"Value1": {
+						"defaults": "Value#",
+						"enabled": true,
+						"meas": "m1"
+					}
+				}
+			}
+		},
+		"axes": {
+			"Axis1": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "Quantity Sold",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			},
+			"Axis2": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"member_axes": {
+			"Axis1": {
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"MemberAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"HiearchyLabelRotation": { "enum": "Auto" },
+									"HiearchyTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050", "Alignment": "TopLeft" } },
+									"LabelFormat": { "enum": "Hierarchical" },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"legends": {
+			"Legend": {
+				"visibility": "Automatic",
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "TopCenter",
+				"position": "MiddleRight",
+				"items_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"items_alignment": "MiddleLeft",
+				"background_color": "#00ffffff"
+			}
+		},
+		"config": {
+			"Custom": {
+				"group": {
+					"ChartOptions": {
+						"group": {
+							"AreaStacking": { "enum": "BackToBack" },
+							"ColumnStacking": { "enum": "SideBySide" },
+							"ColumnWidth": { "enum": "Medium" },
+							"IsComparisonLineEnabled": { "bool": true },
+							"PlotAreaBackground": { "color": "" }
+						}
+					},
+					"LegendOptions": {
+						"group": {
+							"ReverseLegend": { "bool": false }
+						}
+					}
+				}
+			}
+		}
+	},
+	"config": {
+		"Style": {
+			"group": {
+				"BackgroundColor": { "color": "#00FFFFFF" },
+				"BackgroundImage": { "image": { "Id": "", "Stretch": "None", "Alignment": "MiddleCenter" } },
+				"DrillColor": { "color": "#00FFFFFF" },
+				"UseDrillColor": { "bool": false }
+			}
+		}
+	}
+}</config>
+			</visualization>
+			<criteriabehavior value="respondtoallchanges"/>
+			<ignoreDimensionCriteria/>
+			<toolbarsettings>{"DrillOutState":"VisibleOnMouseEnter","ExpandCollapseLevelState":"VisibleOnMouseEnter","MaximizeRestoreState":"VisibleOnMouseEnter","ShowExplanationState":"VisibleOnMouseEnter","ShowDataState":"VisibleOnMouseEnter"}</toolbarsettings>
+		</object>
+		<object typeName="Visualization" chartclass="" ID="{A8F4A088-E987-44D7-9684-AD4ED952D1DD}" name="Chart5">
+			<version suite="26.10.5006" dataobj="21" criteria="3"/>
+			<metadata database="FKlub" cube="F-Klub Sales"/>
+			<onDbInaccessible isrequired="false" autoremove="false"/>
+			<fieldUsage openwithoutdata="false" onlynonempty="default">
+				<y>
+					<metadata dimension="Member" hierarchy="Gender"/>
+				</y>
+				<expand>{"X":[],"Y":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Member","Hierarchy":"Gender"},"CollapseMembers":null,"ExpandMembers":null}]}</expand>
+				<data>
+					<metadata measure="Quantity Sold"/>
+				</data>
+				<ifempty>{"HideObject":false,"UseCustomMessage":false,"Message":{"Text":""},"Font":{"FontFamily":"Segoe UI","FontSize":11,"Bold":"True","Color":"#808080"}}</ifempty>
+			</fieldUsage>
+			<gridOptions>
+				<sort collate="true"/>
+				<hierarchyDisplay>standard</hierarchyDisplay>
+				<wordwrap global="true"/>
+				<autodetecturl enabled="true"/>
+				<totals grandtotals="true" subtotals="true" highlightX="true" highlightY="true"/>
+				<measureproperties idx="0">
+					<label visible="true" measure="true" dimension="true" percent="false" value="true" total="false"/>
+				</measureproperties>
+				<gridcolors id="{656E94A8-F142-4F05-9030-0BC0242E5EDD}" outside="FFFFFFFF" usedefault="true">
+					<collabel bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+						<border bottom="FFA1A8AD"/>
+						<font name="Segoe UI" size="10" bold="true"/>
+						<alt bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+							<border bottom="FFA1A8AD"/>
+							<font name="Segoe UI" size="10" bold="true"/>
+						</alt>
+					</collabel>
+					<rowlabel bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF00858F"/>
+					</rowlabel>
+					<cell bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF0098EC"/>
+					</cell>
+					<comment bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFE0E0E0" text="FF000000" url="FF0098EC"/>
+					</comment>
+					<selected bg="FF2EB7C2" text="FFFFFFFF" url="FF000000">
+						<alt bg="FF2EB7C2" text="FFFFFFFF" url="FF000000"/>
+					</selected>
+					<hidden bg="FFCBE4ED" text="FF000000" url="FF7BD0FF">
+						<alt bg="FF9ACBDD" text="FF000000" url="FF7BD0FF"/>
+					</hidden>
+				</gridcolors>
+				<xorder totals="before" originalorder="false"/>
+				<yorder totals="before" originalorder="false"/>
+			</gridOptions>
+			<visualization>
+				<config>{
+	"template_id": "MultiSeries",
+	"visualization_id": "330f98d8-37a3-4d31-af76-9463a793df96",
+	"content": {
+		"id": "Chart1",
+		"enabled": true,
+		"source_x": "[1,-1]",
+		"source_y": "[1,-1]",
+		"title": "Select Gender",
+		"title_origin": "current",
+		"title_font": { "Name": "Segoe UI", "Size": 12, "Color": "#FF505050" },
+		"title_alignment": "TopLeft",
+		"title_background_color": "#00ffffff",
+		"title_borderstyle": {
+			"BackgroundColor": "#00FFFFFF",
+			"BorderRadius": 0,
+			"BorderRadiusTopLeft": null,
+			"BorderRadiusTopRight": null,
+			"BorderRadiusBottomLeft": null,
+			"BorderRadiusBottomRight": null,
+			"BorderWidth": 0,
+			"BorderWidthTop": null,
+			"BorderWidthBottom": null,
+			"BorderWidthLeft": null,
+			"BorderWidthRight": null,
+			"BorderColor": "#FF606060",
+			"BorderColorTop": null,
+			"BorderColorBottom": null,
+			"BorderColorLeft": null,
+			"BorderColorRight": null,
+			"Padding": 0,
+			"PaddingTop": null,
+			"PaddingBottom": null,
+			"PaddingLeft": null,
+			"PaddingRight": null
+		},
+		"explanation": "",
+		"explanation_origin": "current",
+		"per_item": {
+			"Measures": {
+				"enabled": true,
+				"defaults": {
+					"Value#": {
+						"value_template_id": "#/chart/value_templates/Value",
+						"value_type": "number",
+						"enabled": true,
+						"text": "",
+						"text_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"text_alignment": "MiddleCenter",
+						"hint": "",
+						"hint_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"axis_id": "Axis1",
+						"include_stroke_color_in_legend": false,
+						"include_fill_color_in_legend": false,
+						"row_stroke_color": "automatic",
+						"row_fill_color": "automatic",
+						"column_stroke_color": "automatic",
+						"column_fill_color": "automatic",
+						"drill_target": "cell"
+					}
+				},
+				"values": {
+					"Value1": {
+						"defaults": "Value#",
+						"enabled": true,
+						"source_x": "#-1"
+					}
+				}
+			}
+		},
+		"axes": {
+			"Axis1": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				}
+			}
+		},
+		"member_axes": {
+			"Axis1": {
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				}
+			}
+		},
+		"legends": {
+			"Legend": {
+				"visibility": "Automatic",
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "TopCenter",
+				"position": "MiddleRight",
+				"items_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"items_alignment": "MiddleLeft",
+				"background_color": "#00ffffff"
+			}
+		},
+		"config": {
+			"Custom": {
+				"group": {
+					"SlicerOptions": {
+						"group": {
+							"CloseOnSelection": { "bool": true },
+							"MemberCount": { "integer": 25 },
+							"Orientation": { "enum": "Horizontal" },
+							"SelectedTabColor": { "color": "#FF505050" },
+							"SelectionBorderStyle": { "borderstyle": { "BackgroundColor": "#FF2EB7C2", "BorderRadius": 4, "BorderRadiusTopLeft": null, "BorderRadiusTopRight": null, "BorderRadiusBottomLeft": null, "BorderRadiusBottomRight": null, "BorderWidth": 0, "BorderWidthTop": null, "BorderWidthBottom": null, "BorderWidthLeft": null, "BorderWidthRight": null, "BorderColor": "#FFFFFFFF", "BorderColorTop": null, "BorderColorBottom": null, "BorderColorLeft": null, "BorderColorRight": null, "Padding": 4, "PaddingTop": null, "PaddingBottom": null, "PaddingLeft": null, "PaddingRight": null } },
+							"SelectionColor": { "color": "#FF2EB7C2" },
+							"SelectionTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FFFFFFFF", "Alignment": "TopLeft" } },
+							"SelectionType": { "enum": "Single" },
+							"ShowCheckbox": { "bool": true },
+							"ShowSearchHint": { "bool": true },
+							"ShowTimeTabs": { "bool": false },
+							"SlicerBorderStyle": { "borderstyle": { "BackgroundColor": "#FFF8F8F8", "BorderRadius": 4, "BorderRadiusTopLeft": null, "BorderRadiusTopRight": null, "BorderRadiusBottomLeft": null, "BorderRadiusBottomRight": null, "BorderWidth": 0, "BorderWidthTop": null, "BorderWidthBottom": null, "BorderWidthLeft": null, "BorderWidthRight": null, "BorderColor": "#FFFFFFFF", "BorderColorTop": null, "BorderColorBottom": null, "BorderColorLeft": null, "BorderColorRight": null, "Padding": 4, "PaddingTop": null, "PaddingBottom": null, "PaddingLeft": null, "PaddingRight": null } },
+							"SlicerTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050", "Alignment": "TopLeft" } },
+							"Spacing": { "integer": 2 },
+							"StylingFitToText": { "bool": false },
+							"ToggleSelection": { "bool": true },
+							"Type": { "enum": "Dropdown" },
+							"UseDynamicTime": { "bool": false }
+						}
+					}
+				}
+			}
+		}
+	},
+	"config": {
+		"Style": {
+			"group": {
+				"BackgroundColor": { "color": "#00FFFFFF" },
+				"BackgroundImage": { "image": { "Id": "", "Stretch": "None", "Alignment": "MiddleCenter" } },
+				"DrillColor": { "color": "#00FFFFFF" },
+				"UseDrillColor": { "bool": false }
+			}
+		}
+	}
+}</config>
+			</visualization>
+			<criteriabehavior value="asslicer"/>
+			<ignoreDimensionCriteria/>
+			<toolbarsettings>{"DrillOutState":"VisibleOnMouseEnter","ExpandCollapseLevelState":"VisibleOnMouseEnter","MaximizeRestoreState":"VisibleOnMouseEnter","ShowExplanationState":"VisibleOnMouseEnter","ShowDataState":"VisibleOnMouseEnter"}</toolbarsettings>
+		</object>
+		<object typeName="Visualization" chartclass="Targit.VisifireCharts.BarChart" ID="{D942124E-127E-4F6A-90E3-E2539A83AE24}" name="Chart2">
+			<version suite="26.10.5006" dataobj="21" criteria="3"/>
+			<metadata database="FKlub" cube="F-Klub Sales"/>
+			<onDbInaccessible isrequired="false" autoremove="false"/>
+			<fieldUsage openwithoutdata="false" onlynonempty="default">
+				<y>
+					<metadata dimension="Product" hierarchy="Product Classification" level="Type"/>
+				</y>
+				<expand>{"X":[],"Y":[{"LevelId":{"Database":"FKlub","Cube":"F-Klub Sales","Dimension":"Product","Hierarchy":"Product Classification","Level":"Type"},"CollapseMembers":[],"ExpandMembers":[]}]}</expand>
+				<data>
+					<metadata measure="Quantity Sold"/>
+				</data>
+				<ifempty>{"HideObject":false,"UseCustomMessage":false,"Message":{"Text":""},"Font":{"FontFamily":"Segoe UI","FontSize":11,"Bold":"True","Color":"#808080"}}</ifempty>
+			</fieldUsage>
+			<gridOptions>
+				<sort collate="false">{"Columns":[{"Key":"[d-1(r0),m1]","Descending":true}]}</sort>
+				<hierarchyDisplay>standard</hierarchyDisplay>
+				<wordwrap global="true"/>
+				<autodetecturl enabled="true"/>
+				<topList>10</topList>
+				<topPct>false</topPct>
+				<totals grandtotals="true" subtotals="true" highlightX="true" highlightY="true"/>
+				<measureproperties idx="0">
+					<label visible="true" measure="true" dimension="true" percent="false" value="true" total="false"/>
+				</measureproperties>
+				<gridcolors id="{656E94A8-F142-4F05-9030-0BC0242E5EDD}" outside="FFFFFFFF" usedefault="true">
+					<collabel bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+						<border bottom="FFA1A8AD"/>
+						<font name="Segoe UI" size="10" bold="true"/>
+						<alt bg="FFFFFFFF" text="FF00858F" url="FF00858F">
+							<border bottom="FFA1A8AD"/>
+							<font name="Segoe UI" size="10" bold="true"/>
+						</alt>
+					</collabel>
+					<rowlabel bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF00858F"/>
+					</rowlabel>
+					<cell bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFFFFFFF" text="FF000000" url="FF0098EC"/>
+					</cell>
+					<comment bg="FFF8F8F8" text="FF000000" url="FF00858F">
+						<alt bg="FFE0E0E0" text="FF000000" url="FF0098EC"/>
+					</comment>
+					<selected bg="FF2EB7C2" text="FFFFFFFF" url="FF000000">
+						<alt bg="FF2EB7C2" text="FFFFFFFF" url="FF000000"/>
+					</selected>
+					<hidden bg="FFCBE4ED" text="FF000000" url="FF7BD0FF">
+						<alt bg="FF9ACBDD" text="FF000000" url="FF7BD0FF"/>
+					</hidden>
+				</gridcolors>
+				<xorder totals="before" originalorder="false"/>
+				<yorder totals="before" originalorder="false"/>
+			</gridOptions>
+			<visualization>
+				<config>{
+	"template_id": "MultiSeries",
+	"visualization_id": "40219e5b-7645-4cca-977f-fbd1a5ad0f39",
+	"content": {
+		"id": "Chart1",
+		"enabled": true,
+		"source_x": "[1,-1]",
+		"source_y": "[1,-1]",
+		"title": "Top 10 Product Types",
+		"title_origin": "current",
+		"title_font": { "Name": "Segoe UI", "Size": 12, "Color": "#FF505050" },
+		"title_alignment": "TopLeft",
+		"title_background_color": "#00ffffff",
+		"title_borderstyle": {
+			"BackgroundColor": "#00FFFFFF",
+			"BorderRadius": 0,
+			"BorderRadiusTopLeft": null,
+			"BorderRadiusTopRight": null,
+			"BorderRadiusBottomLeft": null,
+			"BorderRadiusBottomRight": null,
+			"BorderWidth": 0,
+			"BorderWidthTop": null,
+			"BorderWidthBottom": null,
+			"BorderWidthLeft": null,
+			"BorderWidthRight": null,
+			"BorderColor": "#FF606060",
+			"BorderColorTop": null,
+			"BorderColorBottom": null,
+			"BorderColorLeft": null,
+			"BorderColorRight": null,
+			"Padding": 0,
+			"PaddingTop": null,
+			"PaddingBottom": null,
+			"PaddingLeft": null,
+			"PaddingRight": null
+		},
+		"explanation": "",
+		"explanation_origin": "current",
+		"per_item": {
+			"Measures": {
+				"enabled": true,
+				"defaults": {
+					"Value#": {
+						"value_template_id": "#/chart/value_templates/Value",
+						"value_type": "number",
+						"enabled": true,
+						"text": "{MeasureValue}",
+						"text_parameters": {
+							"MeasureValue": {
+								"number": "current"
+							}
+						},
+						"text_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"text_alignment": "MiddleCenter",
+						"hint": "{MeasureValue}",
+						"hint_parameters": {
+							"MeasureValue": {
+								"number": "current"
+							}
+						},
+						"hint_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+						"axis_id": "Axis1",
+						"include_stroke_color_in_legend": true,
+						"include_fill_color_in_legend": true,
+						"row_stroke_color": "automatic",
+						"row_fill_color": "automatic",
+						"column_stroke_color": "automatic",
+						"column_fill_color": "automatic",
+						"drill_target": "cell",
+						"config": {
+							"Custom": {
+								"group": {
+									"ColumnOptions": {
+										"group": {
+											"LabelPlacement": { "enum": "Outside" },
+											"LabelRotation": { "enum": "Auto" }
+										}
+									},
+									"SeriesOptions": {
+										"group": {
+											"ChartType": { "enum": "Default" },
+											"LineStyle": { "linestyle": { "Thickness": 2, "Style": "solid", "Color": "#FF808080" } },
+											"MarkerSize": { "enum": "Medium" },
+											"MarkerType": { "enum": "Default" }
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"values": {
+					"Value1": {
+						"defaults": "Value#",
+						"enabled": true,
+						"meas": "m1"
+					}
+				}
+			}
+		},
+		"axes": {
+			"Axis1": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "Quantity Sold",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			},
+			"Axis2": {
+				"enabled": true,
+				"axis_template_id": "#/chart/axis_templates/Axis",
+				"min": "automatic",
+				"max": "automatic",
+				"label_interval": "automatic",
+				"outlier_detection": "default",
+				"outlier_threshold": 0,
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"format": { "numberformat": "0.#;;0", "abbreviate_bmk": true },
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"NumericAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"member_axes": {
+			"Axis1": {
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "MiddleCenter",
+				"labels": {
+					"enabled": true,
+					"font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+					"alignment": "MiddleCenter",
+					"angle": "Automatic"
+				},
+				"config": {
+					"Custom": {
+						"group": {
+							"MemberAxisOptions": {
+								"group": {
+									"GridLineStyle": { "linestyle": { "Thickness": 0, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"HiearchyLabelRotation": { "enum": "Auto" },
+									"HiearchyTextStyle": { "textstyle": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050", "Alignment": "TopLeft" } },
+									"LabelFormat": { "enum": "Hierarchical" },
+									"LineStyle": { "linestyle": { "Thickness": 1, "Style": "solid", "Color": "#FFA1A8AD" } },
+									"Size": { "integer": 0 }
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"legends": {
+			"Legend": {
+				"visibility": "Automatic",
+				"title": "",
+				"title_origin": "current",
+				"title_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"title_alignment": "TopCenter",
+				"position": "MiddleRight",
+				"items_font": { "Name": "Segoe UI", "Size": 9, "Color": "#FF505050" },
+				"items_alignment": "MiddleLeft",
+				"background_color": "#00ffffff"
+			}
+		},
+		"config": {
+			"Custom": {
+				"group": {
+					"ChartOptions": {
+						"group": {
+							"AreaStacking": { "enum": "BackToBack" },
+							"ColumnStacking": { "enum": "SideBySide" },
+							"ColumnWidth": { "enum": "Medium" },
+							"IsComparisonLineEnabled": { "bool": true },
+							"PlotAreaBackground": { "color": "" }
+						}
+					},
+					"LegendOptions": {
+						"group": {
+							"ReverseLegend": { "bool": false }
+						}
+					}
+				}
+			}
+		}
+	},
+	"config": {
+		"Style": {
+			"group": {
+				"BackgroundColor": { "color": "#00FFFFFF" },
+				"BackgroundImage": { "image": { "Id": "", "Stretch": "None", "Alignment": "MiddleCenter" } },
+				"DrillColor": { "color": "#00FFFFFF" },
+				"UseDrillColor": { "bool": false }
+			}
+		}
+	}
+}</config>
+			</visualization>
+			<criteriabehavior value="respondtoallchanges"/>
+			<ignoreDimensionCriteria/>
+			<toolbarsettings>{"DrillOutState":"VisibleOnMouseEnter","ExpandCollapseLevelState":"VisibleOnMouseEnter","MaximizeRestoreState":"VisibleOnMouseEnter","ShowExplanationState":"VisibleOnMouseEnter","ShowDataState":"VisibleOnMouseEnter"}</toolbarsettings>
+		</object>
+	</data>
+	<workarea>{"layouts":[{"id":"c4d9d03c-32d8-40f7-9720-485638662c2c","name":"Dashboard","settings":{"fitsTo":0,"viewBackgroundColor":null,"enabledFor":7,"designedFor":7},"pages":[{"items":[{"id":"63ded457-65ac-4b8f-ad0e-10c2399e0efe","contentId":"{EA45A4A3-80CC-4663-B65F-145EFB727D3E}","height":444,"zOrder":1,"left":10,"top":61,"width":663,"isVisible":true,"disabled":false,"type":0,"scale":1,"name":"","children":null,"border":{"BackgroundColor":"#00FFFFFF","BorderRadius":0,"BorderRadiusTopLeft":null,"BorderRadiusTopRight":null,"BorderRadiusBottomLeft":null,"BorderRadiusBottomRight":null,"BorderWidth":0,"BorderWidthTop":null,"BorderWidthBottom":null,"BorderWidthLeft":null,"BorderWidthRight":null,"BorderColor":"#FF606060","BorderColorTop":null,"BorderColorBottom":null,"BorderColorLeft":null,"BorderColorRight":null,"Padding":0,"PaddingTop":null,"PaddingBottom":null,"PaddingLeft":null,"PaddingRight":null}},{"id":"7f66c250-2fa1-40f4-b6d4-ffce01b20e33","contentId":"{84132185-B376-45E7-8B7D-D79DEC886985}","type":0,"name":"","zOrder":2,"width":636,"height":49,"left":0,"top":0,"isVisible":true,"disabled":false,"border":{"BackgroundColor":"#00FFFFFF","BorderRadius":0,"BorderWidth":0,"BorderColor":"#FF606060","Padding":0},"scale":1},{"id":"62cc08be-081d-4cdc-9007-0a8be00af00d","contentId":"{F3FDF31F-EA0F-4ADA-A6A3-2A9F209CECCE}","height":379,"zOrder":3,"left":14.5,"top":505,"width":658.5,"isVisible":true,"disabled":false,"type":0,"scale":1,"name":"","children":null,"border":{"BackgroundColor":"#00FFFFFF","BorderRadius":0,"BorderRadiusTopLeft":null,"BorderRadiusTopRight":null,"BorderRadiusBottomLeft":null,"BorderRadiusBottomRight":null,"BorderWidth":0,"BorderWidthTop":null,"BorderWidthBottom":null,"BorderWidthLeft":null,"BorderWidthRight":null,"BorderColor":"#FF606060","BorderColorTop":null,"BorderColorBottom":null,"BorderColorLeft":null,"BorderColorRight":null,"Padding":0,"PaddingTop":null,"PaddingBottom":null,"PaddingLeft":null,"PaddingRight":null}},{"id":"1a9351b8-1235-45c8-a4bc-724a686881ea","contentId":"{A8F4A088-E987-44D7-9684-AD4ED952D1DD}","height":51,"zOrder":4,"left":729,"top":-2,"width":617,"isVisible":true,"disabled":false,"type":0,"scale":1,"name":"","children":null,"border":{"BackgroundColor":"#00FFFFFF","BorderRadius":0,"BorderRadiusTopLeft":null,"BorderRadiusTopRight":null,"BorderRadiusBottomLeft":null,"BorderRadiusBottomRight":null,"BorderWidth":0,"BorderWidthTop":null,"BorderWidthBottom":null,"BorderWidthLeft":null,"BorderWidthRight":null,"BorderColor":"#FF606060","BorderColorTop":null,"BorderColorBottom":null,"BorderColorLeft":null,"BorderColorRight":null,"Padding":0,"PaddingTop":null,"PaddingBottom":null,"PaddingLeft":null,"PaddingRight":null}},{"id":"4fe2f20f-c1a4-4ab8-af07-faeb0c9e4b1f","contentId":"{D942124E-127E-4F6A-90E3-E2539A83AE24}","height":823,"zOrder":5,"left":729,"top":61,"width":871,"isVisible":true,"disabled":false,"type":0,"scale":1,"name":"","children":null,"border":{"BackgroundColor":"#00FFFFFF","BorderRadius":0,"BorderRadiusTopLeft":null,"BorderRadiusTopRight":null,"BorderRadiusBottomLeft":null,"BorderRadiusBottomRight":null,"BorderWidth":0,"BorderWidthTop":null,"BorderWidthBottom":null,"BorderWidthLeft":null,"BorderWidthRight":null,"BorderColor":"#FF606060","BorderColorTop":null,"BorderColorBottom":null,"BorderColorLeft":null,"BorderColorRight":null,"Padding":0,"PaddingTop":null,"PaddingBottom":null,"PaddingLeft":null,"PaddingRight":null}}],"id":"893ea67b-a24d-4ff8-8523-6a9224a57cde","name":"Page 1","visible":true,"settings":{"height":900,"width":1600,"sizeUnit":0,"deviceType":0,"pageBackgroundColor":"#ffffff","gridVisible":true,"gridSize":20,"gridColor":"#BCBCBC","snapToGridEnabled":true,"snapToObjectsEnabled":true,"rulerEnabled":false,"marginGuidesSize":{"top":0,"bottom":0,"left":0,"right":0,"sizeUnit":0}}}]}]}</workarea>
+</targitView>
