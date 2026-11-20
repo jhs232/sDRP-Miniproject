@@ -68,3 +68,23 @@ CREATE TABLE IF NOT EXISTS sale (
     CHECK (quantity > 0),
     PRIMARY KEY (member_id, date_id, time_id, location_id, item_version_id)
 );
+
+CREATE OR REPLACE VIEW public.date_olap AS
+SELECT
+    d.*,
+    d.year * 100 +
+    CASE LOWER(d.month)
+        WHEN 'january' THEN 1
+        WHEN 'february' THEN 2
+        WHEN 'march' THEN 3
+        WHEN 'april' THEN 4
+        WHEN 'may' THEN 5
+        WHEN 'june' THEN 6
+        WHEN 'july' THEN 7
+        WHEN 'august' THEN 8
+        WHEN 'september' THEN 9
+        WHEN 'october' THEN 10
+        WHEN 'november' THEN 11
+        WHEN 'december' THEN 12
+    END AS year_month_key
+FROM public."date" d;
